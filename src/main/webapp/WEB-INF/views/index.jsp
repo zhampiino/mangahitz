@@ -33,10 +33,15 @@
                             <div class="pull-right">
                                 <strong></strong>
                                 <div class="btn-group btn-layout-view">
-                                    <a href="/view/list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
-                                    <a href="/view/grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+	                                <c:if test="${viewType eq 'list' }">
+	                                	<a href="/view/list" class="btn btn-default btn-xs list active"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
+		                                <a href="/view/grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+	                                </c:if>
+	                                <c:if test="${viewType eq 'grid' }">
+	                                	<a href="/view/list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
+		                                <a href="/view/grid" class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+	                                </c:if>
                                 </div>
-
                             </div>
                         </div>
                     </div>
