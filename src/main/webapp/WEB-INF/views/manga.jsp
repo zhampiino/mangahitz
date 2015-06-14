@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 
@@ -53,7 +54,7 @@
 						<c:forEach var="i" begin="1" end="10">
 						   <li class="list-group-item">
 						    <span class="badge">05/05/2015</span>
-						    <a class="text-capitalize" href="/naruto/${i}">${mangaName } : chapter ${i}</a>						    
+						    <a class="text-capitalize" href="/${mangaName }/${i}"> ${fn:toLowerCase(mangaName)} : chapter ${i}</a>						    
 						  </li>
 						</c:forEach>				 
 					</ul>
