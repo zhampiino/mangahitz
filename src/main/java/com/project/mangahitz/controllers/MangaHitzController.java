@@ -55,6 +55,8 @@ public class MangaHitzController {
 	@RequestMapping(value = "/{mangaName}", method = RequestMethod.GET)
 	public String manga(Locale locale, Model model,@PathVariable("mangaName") String mangaName) {
 		
+		model.addAttribute("mangaName", mangaName);
+		
 		return "manga";
 	}
 	

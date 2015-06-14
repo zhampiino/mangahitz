@@ -50,34 +50,12 @@
 					</div>
 		
 					<ul class="list-group">
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter1</a>
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter2</a>
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter3</a>
-					  </li>
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter4</a>
-					  </li>		  
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter5</a>
-					  </li>		  
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter6</a>
-					  </li>		  
-					  <li class="list-group-item">
-					    <span class="badge">05/05/2015</span>
-					    <a href="#">Chapter7</a>
-					  </li>		  
+						<c:forEach var="i" begin="1" end="10">
+						   <li class="list-group-item">
+						    <span class="badge">05/05/2015</span>
+						    <a class="text-capitalize" href="/naruto/${i}">${mangaName } : chapter ${i}</a>						    
+						  </li>
+						</c:forEach>				 
 					</ul>
 		 		</div> 
  		

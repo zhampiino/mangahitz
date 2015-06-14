@@ -15,7 +15,7 @@
     <meta name="description" content="การ์ตูน อ่านการ์ตูน อ่านการ์ตูนออนไลน์ อัพเดทตอนใหม่ๆทุกวันที่ CartoonClub-TH">
     <meta name="keywords" content="การ์ตูน,อ่านการ์ตูน,อ่านการ์ตูนออนไลน์,แฟรี่เทล Fairy Tail,วันพีช One Piece,OnePiece,นารูโตะ Naruto,บลีช Bleach,รีบอร์น Reborn,โทริโกะ Toriko,ฮันเตอร์ X ฮันเตอร์,Hunter X Hunte">
 
-    <title>MangaHitz - Online Manga Reader</title>
+    <title>MangaHitz - Online Manga Reader ${mangaName }</title>
 
     <!-- Bootstrap Core CSS -->
     <!--link href="css/bootstrap.min.css" rel="stylesheet"-->
