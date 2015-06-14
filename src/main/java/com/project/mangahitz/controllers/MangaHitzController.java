@@ -1,26 +1,34 @@
 package com.project.mangahitz.controllers;
 
-import java.text.DateFormat;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.project.mangahitz.service.MangaHitzRESTful;
+
 /**
  * Handles requests for the application home page.
  */
 @Controller
-public class MangaController {
+//@SessionAttributes(value={"viewType","mangaName"})
+public class MangaHitzController {
 	
-	private static final Logger logger = LoggerFactory.getLogger(MangaController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MangaHitzController.class);
 	
+	@Autowired
+	private MangaHitzRESTful mangaHitzRESTful;
+	
+	public void setMangaHitzRESTful(MangaHitzRESTful mangaHitzRESTful) {
+		this.mangaHitzRESTful = mangaHitzRESTful;
+	}
+
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -34,8 +42,12 @@ public class MangaController {
 	@RequestMapping(value = "/view/{viewType}", method = RequestMethod.GET)
 	public String index2(Locale locale, Model model,@PathVariable("viewType") String viewType) {
 		
+		System.out.println(model.containsAttribute("viewType"));
 		
 		model.addAttribute("viewType", viewType);
+		
+		mangaHitzRESTful.getLastReleaseManga();
+		
 		
 		return "index";
 	}
