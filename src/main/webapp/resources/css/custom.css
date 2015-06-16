@@ -14,6 +14,11 @@ body {
     margin-bottom: 17px;
 }
 
+.layout-view	a:hover, 
+.layout-view	a:focus {
+	/*text-decoration: none;*/
+}
+
 .item {
     border-radius: 4px;
 }
@@ -35,8 +40,6 @@ body {
 
 
 .ratings {
-    padding-right: 10px;
-    padding-left: 10px;
     color: #d17581;
 }
 
@@ -56,6 +59,7 @@ body {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
+    position: relative;
 }
 
 .thumbnail:hover {
@@ -64,37 +68,42 @@ body {
 }
 
 /* Layout View :: List view */
-.item.list-view .caption{
+.list-view .caption{
     height: auto;
     padding: 0 9px;
 }
 
-.item.list-view .caption h5{
+.list-view .caption h5{
     margin: 4px 0;
+    color: #18bc9c;
+    font-weight: bold;	
 }
 
-.item.list-view .caption p{
+.list-view .caption p{
     color: #999;
-    padding-left: 12px;
     font-size: 14px;
     margin: 0;
     margin-bottom: 4px;
 }
 
-.item.list-view .ratings p{
+.list-view .ratings p{
     font-size: 13px;
     margin: 0;
 }
 
-.item.list-view .thumbnail img{
+.list-view .thumbnail img{
     display:none;
 }
 
-.item.list-view .thumbnail{
+.list-view .thumbnail{
     margin-bottom: 4px;
 }
 
-/* List group items */
+/* Layout View :: Grid view */
+.grid-view .thumbnail .caption{
+	
+}
+
 
 
 /* Footer */

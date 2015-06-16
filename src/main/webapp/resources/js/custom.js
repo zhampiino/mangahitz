@@ -1,5 +1,7 @@
-/*$(document).ready(function () {
-
+$(document).ready(function () {
+	
+	$('.layout-view').hide().fadeIn('slow');
+/*
     $('.btn-layout-view a').on('click', function (e) {
         if ($(this).hasClass('grid')) {
             event.preventDefault();
@@ -30,9 +32,9 @@
             $('.layout-view').hide().fadeIn('slow');
         }
     }
-
+*/
 });
-
+/*
 function getUrlParameter(sParam) {
     var sPageURL = window.location.search.substring(1);
     var sURLVariables = sPageURL.split('&');

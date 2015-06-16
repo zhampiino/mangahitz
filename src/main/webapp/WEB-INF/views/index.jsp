@@ -23,7 +23,7 @@
         <div class="row">
 		
 
-            <div class="col-md-8">
+            <div class="col-md-9">
 
                 <div class="latest-manga">
 
@@ -45,330 +45,106 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row layout-view">
-                    	<c:if test="${viewType eq 'list' }">
-                        	<div class="item col-sm-12 col-lg-12 col-md-12 list-view">
-                        </c:if>
-                        <c:if test="${viewType eq 'grid' }">
-                        	<div class="item col-sm-4 col-lg-4 col-md-4 grid-view">
-                        </c:if>	
-                            <div class="thumbnail">
-                                <img src="http://s4.mangapanda.com/cover/naruto/naruto-l0.jpg" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">ตอนที่ #700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    	<c:if test="${viewType eq 'list' }">
-                        	<div class="item col-sm-12 col-lg-12 col-md-12 list-view">
-                        </c:if>
-                        <c:if test="${viewType eq 'grid' }">
-                        	<div class="item col-sm-4 col-lg-4 col-md-4 grid-view">
-                        </c:if>	
-                            <div class="thumbnail">
-                                <img src="http://s2.mangapanda.com/cover/one-piece/one-piece-l1.jpg" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    	<c:if test="${viewType eq 'list' }">
-                        	<div class="item col-sm-12 col-lg-12 col-md-12 list-view">
-                        </c:if>
-                        <c:if test="${viewType eq 'grid' }">
-                        	<div class="item col-sm-4 col-lg-4 col-md-4 grid-view">
-                        </c:if>	
-                            <div class="thumbnail">
-                                <img src="http://s4.mangapanda.com/cover/naruto/naruto-l0.jpg" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    	<c:if test="${viewType eq 'list' }">
-                        	<div class="item col-sm-12 col-lg-12 col-md-12 list-view">
-                        </c:if>
-                        <c:if test="${viewType eq 'grid' }">
-                        	<div class="item col-sm-4 col-lg-4 col-md-4 grid-view">
-                        </c:if>	
-                            <div class="thumbnail">
-                                <img src="http://s2.mangapanda.com/cover/one-piece/one-piece-l1.jpg" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">ตอนที่ #700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    	<c:if test="${viewType eq 'list' }">
-                        	<div class="item col-sm-12 col-lg-12 col-md-12 list-view">
-                        </c:if>
-                        <c:if test="${viewType eq 'grid' }">
-                        	<div class="item col-sm-4 col-lg-4 col-md-4 grid-view">
-                        </c:if>	
-                            <div class="thumbnail">
-                                <img src="http://s4.mangapanda.com/cover/naruto/naruto-l0.jpg" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    	<c:if test="${viewType eq 'list' }">
-                        	<div class="item col-sm-12 col-lg-12 col-md-12 list-view">
-                        </c:if>
-                        <c:if test="${viewType eq 'grid' }">
-                        	<div class="item col-sm-4 col-lg-4 col-md-4 grid-view">
-                        </c:if>	
-                            <div class="thumbnail">
-                                <img src="http://s2.mangapanda.com/cover/one-piece/one-piece-l1.jpg" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                  
+                  	<!------------------------->
+                  	<!-- View type List View -->
+                  	<!------------------------->
+                	<c:if test="${viewType eq 'list' }">               	
+                		<div class="row layout-view list-view">	                    
+		                    <c:forEach var="i" begin="1" end="10"> 		                    
+	                    		<!-- Items -->                                    
+	                    		<div class="item col-xs-12 col-sm-12 col-lg-12 col-md-12">	     
+                                <!--  img src="http://s4.mangapanda.com/cover/naruto/naruto-l0.jpg" alt="" /-->
+                              	
+										<h5><a href="/naruto">Naruto Gaiden</a></h5>
+										
+										<ul class="list-group">
+	                                  		<!-- span class="">15 reviews</span --> 
+	                                   		<li class="list-group-item">
+		                                   		<a href="/naruto/7">
+			                                   		<span>Chapter 7 : The Seventh Hokage</span> 
+			                                    	<span class="ratings pull-right">
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                    </span>                                   		
+		                                    	</a>
+	                                    	</li>
+	                                    	<li class="list-group-item">
+		                                   		<a href="/naruto/8">
+			                                   		<span>Chapter 8 : The Seventh Hokage</span> 
+			                                    	<span class="ratings pull-right">
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                    </span>                                   		
+		                                    	</a>
+	                                    	</li>
+	                                    	<li class="list-group-item">
+		                                   		<a href="/naruto/9">
+			                                   		<span>Chapter 9 : The Seventh Hokage</span> 
+			                                    	<span class="ratings pull-right">
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                    </span>                                   		
+		                                    	</a>
+	                                    	</li>
+	                                    	
+                                    	</ul>
+                          
+		                                
+	                                                      
+	                    		</div>		                     		  	                     	                     
+		                	</c:forEach>	                     	                	 	 
+                    	</div><!-- End row -->
+                    </c:if>
+                    
+                  	<!------------------------->
+                  	<!-- View type Grid View -->
+                  	<!------------------------->
+                	<c:if test="${viewType eq 'grid' }">               	
+                		<div class="row layout-view grid-view">	                    
+		                    <c:forEach var="i" begin="1" end="10"> 		                    
+	                    		<!-- Items -->                                    
+	                    		<div class="item col-xs-6 col-sm-6 col-lg-3 col-md-3">	     
+		                            <div class="thumbnail">
+		                            	<a href="/naruto/1">
+			                                <img src="http://s4.mangapanda.com/cover/naruto/naruto-l0.jpg" alt="" />
+			                                <div class="caption">
+			                                    <h5>Naruto Gaiden</h5>
+			                                    <p>The Seventh Hokage 7</p>
+			                                    <div class="wrapper">
+				                                    <p class="pull-right">15 reviews</p>
+				                                    <p class="ratings">
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                        <span class="glyphicon glyphicon-star"></span>
+				                                    </p>
+				                                </div>
+			                                </div><!-- End caption -->
+		                                </a>
+		                            </div><!-- End thumbnail --> 		                                                      
+	                      		</div>		                     		  	                     	                     
+		                     </c:forEach>	                     	                	 	 
+                    	</div><!-- End row -->
+                    </c:if>
+                    
+     
                 </div>
+                
+			
+            </div><!-- End col-md --> 
 
-                <div class="yesterday-manga">
-
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <b>Latest Manga Updates</b>
-                            <!--div class="pull-right">
-                                <strong></strong>
-                                <div class="btn-group btn-layout-view">
-                                    <a href="#" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span> List</a>
-                                    <a href="#" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span> Grid</a>
-                                </div>
-
-                            </div-->
-                        </div>
-                    </div>
-
-                    <div class="row layout-view">
-                        <div class="item col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/320x347" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">ตอนที่ #700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/320x347" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/320x347" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/320x347" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/320x347" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item col-sm-4 col-lg-4 col-md-4">
-                            <div class="thumbnail">
-                                <img src="http://placehold.it/320x347" alt="">
-                                <div class="caption">
-                                    <h5 class="pull-right">#700</h5>
-                                    <h5>
-                                        <a href="#">Naruto Gaiden: The Seventh Hokage </a>
-                                    </h5>
-                                    <p>Naruto Gaiden: The Seventh Hokage 7</p>
-                                </div>
-                                <div class="ratings">
-                                    <p class="pull-right">15 reviews</p>
-                                    <p>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                        <span class="glyphicon glyphicon-star"></span>
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
-
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-success">
