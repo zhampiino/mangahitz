@@ -51,60 +51,73 @@
                   	<!------------------------->
                 	<c:if test="${viewType eq 'list' }">               	
                 		<div class="row layout-view list-view">	                    
-		                    <c:forEach var="i" begin="1" end="10"> 		                    
+		                    		                    
 	                    		<!-- Items -->                                    
 	                    		<div class="item col-xs-12 col-sm-12 col-lg-12 col-md-12">	     
-                                <!--  img src="http://s4.mangapanda.com/cover/naruto/naruto-l0.jpg" alt="" /-->
-                              	
-										<h5><a href="/naruto">Naruto Gaiden</a></h5>
-										
+                              											
 										<ul class="list-group">
-	                                  		<!-- span class="">15 reviews</span --> 
+											<c:forEach var="i" begin="1" end="5"> 
 	                                   		<li class="list-group-item">
-		                                   		<a href="/naruto/7">
-			                                   		<span>Chapter 7 : The Seventh Hokage</span> 
-			                                    	<span class="ratings pull-right">
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                    </span>                                   		
-		                                    	</a>
-	                                    	</li>
-	                                    	<li class="list-group-item">
-		                                   		<a href="/naruto/8">
-			                                   		<span>Chapter 8 : The Seventh Hokage</span> 
-			                                    	<span class="ratings pull-right">
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                    </span>                                   		
-		                                    	</a>
-	                                    	</li>
-	                                    	<li class="list-group-item">
-		                                   		<a href="/naruto/9">
-			                                   		<span>Chapter 9 : The Seventh Hokage</span> 
-			                                    	<span class="ratings pull-right">
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                        <span class="glyphicon glyphicon-star"></span>
-				                                    </span>                                   		
-		                                    	</a>
-	                                    	</li>
-	                                    	
-                                    	</ul>
-                          
+	                                   		
+                                                <div class="manga-name"><b><a href="/naruto">Naruto Gaiden</a></b></div>
+                                                <div class="manga-chapters">                                                       
+                                                    <div class="title pull-left"><a href="/naruto">Chapter : 1</a></div>
+                                                    <div class="group pull-right">
+                                                        <span class="date">
+                                                            25-07-2015
+                                                        </span>
+                                                        <span class="ratings">
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                        </span>   
+                                                    </div>
+                                                </div>
+                                                <div class="manga-chapters">                                                       
+                                                    <div class="title pull-left"><a href="/naruto">Chapter : 2</a></div>
+                                                    <div class="group pull-right">
+                                                        <span class="date">
+                                                            25-07-2015
+                                                        </span>
+                                                        <span class="ratings">
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                        </span>   
+                                                    </div>
+                                                </div>
+                                                <div class="manga-chapters">                                                       
+                                                    <div class="title pull-left"><a href="/naruto">Chapter : 3</a></div>
+                                                    <div class="group pull-right">
+                                                        <span class="date">
+                                                            25-07-2015
+                                                        </span>
+                                                        <span class="ratings">
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                            <span class="glyphicon glyphicon-star"></span>
+                                                        </span>   
+                                                    </div>
+                                                </div>
+                                                
+											</li>
+											</c:forEach>
+											
+										</ul>
+
 		                                
 	                                                      
 	                    		</div>		                     		  	                     	                     
-		                	</c:forEach>	                     	                	 	 
+		                		                     	                	 	 
                     	</div><!-- End row -->
                     </c:if>
+                    
                     
                   	<!------------------------->
                   	<!-- View type Grid View -->
@@ -139,7 +152,7 @@
                     </c:if>
                     
      
-                </div>
+                </div><!-- End Lastest Manga --> 
                 
 			
             </div><!-- End col-md --> 
