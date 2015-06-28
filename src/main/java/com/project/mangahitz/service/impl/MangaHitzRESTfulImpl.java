@@ -7,12 +7,12 @@ import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 import java.net.URL;
-import java.util.List;
 
+import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.project.mangahitz.constants.MangaHitzConstants;
-import com.project.mangahitz.domains.MangaEp;
+import com.project.mangahitz.domains.response.MangaResponse;
 import com.project.mangahitz.service.MangaHitzRESTful;
 
 @Component("mangaHitzRESTful")
@@ -47,28 +47,69 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 		return connection;
 	}
 	
+	private String readResponse(HttpURLConnection connection) throws IOException{
+	
+		System.out.println("RESPONSE CODE ==> " + connection.getResponseCode());
+		System.out.println("RESPONSE MSG ==> "
+				+ connection.getResponseMessage());
+
+		/* HTTPS Response */
+		StringBuilder responseBody = new StringBuilder();
+		DataInputStream input = new DataInputStream(connection.getInputStream());
+		for (int c = input.read(); c != -1; c = input.read()) {
+			responseBody.append((char) c);
+		}
+
+		input.close();
+
+		return responseBody.toString();
+
+	}
+	
+	private void writeRequest(HttpURLConnection connection ,String requestBody) throws IOException{
+		
+		DataOutputStream output = new DataOutputStream(connection.getOutputStream());
+		output.writeBytes(requestBody);
+		output.flush();
+		output.close();
+		
+	}
+	
 	@Override
-	public List<MangaEp> getLastReleaseManga() {
+	public MangaResponse getLastReleaseManga(String viewType,Integer pageNumber,String releaseType) {
+		
+		MangaResponse mgResponse = new MangaResponse();
 		
 		try
 		{
 		
-			HttpURLConnection connection = this.createConnection(String.format("%s%s",MangaHitzConstants.MANGAHITZ_RESTFUL_URL,MangaHitzConstants.GET_LATEST_MANGA), false, "POST", this.CONTENT_LENGHT);
-			//connection.setDoInput(false);
+			JSONObject jsonRequest = new JSONObject();
+			jsonRequest.put("view_type", viewType);
+			jsonRequest.put("page_number", pageNumber);
+			jsonRequest.put("release_type", releaseType);
 			
-	        DataOutputStream output = new DataOutputStream(connection.getOutputStream());  
-	        output.writeBytes("".toString());
-	        output.flush();
-	        output.close();
-	        /* HTTPS Response */
-	        StringBuilder resBody = new StringBuilder(); 
-	        DataInputStream input = new DataInputStream( connection.getInputStream() ); 
-	        for( int c = input.read(); c != -1; c = input.read() ){
-	        	resBody.append( (char)c );
-	        	//System.out.print( (char)c );
-	        }
+			
+			HttpURLConnection connection = this.createConnection(String.format("%s%s",MangaHitzConstants.MANGAHITZ_RESTFUL_URL,MangaHitzConstants.GET_LATEST_MANGA), false, "POST",jsonRequest.length());
+			
+//			{"view_type":"list","page_number":0,"release_type":"old"}
+			this.writeRequest(connection, jsonRequest.toString());
 	        
-	        input.close(); 
+	       String responseBody = this.readResponse(connection);
+	       
+	       JSONObject jsonResponse = new JSONObject(responseBody);
+	       
+	       
+	       
+	       if(jsonResponse.getBoolean("status")){
+	    	   
+	    	   
+	    	   
+	       }else{
+	    	   
+	    	   
+	    	   
+	       }
+	       
 			
 		}catch(Exception ex){
 			ex.printStackTrace();

@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.project.mangahitz.service.MangaHitzRESTful;
+import com.project.mangahitz.views.IndexView;
 
 /**
  * Handles requests for the application home page.
@@ -33,23 +35,50 @@ public class MangaHitzController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public String index(Locale locale, Model model) {
+	public IndexView index(Locale locale, Model model) {
 
-		model.addAttribute("viewType", "list");
-		return "index";
+		IndexView returnView = new IndexView();
+		
+		returnView.setViewType("list");
+		
+		//model.addAttribute("viewType", "list");
+		
+		
+		
+		return returnView;
 	}
 	
 	@RequestMapping(value = "/view/{viewType}", method = RequestMethod.GET)
-	public String index2(Locale locale, Model model,@PathVariable("viewType") String viewType) {
+	public IndexView indexViewType(Locale locale, Model model,@PathVariable("viewType") String viewType) {
+		
+		IndexView returnView = new IndexView();
 		
 		System.out.println(model.containsAttribute("viewType"));
 		
-		model.addAttribute("viewType", viewType);
+		returnView.setViewType(viewType);
 		
-		mangaHitzRESTful.getLastReleaseManga();
+		mangaHitzRESTful.getLastReleaseManga(viewType,0,"");
 		
 		
-		return "index";
+		return returnView;
+	}
+	
+	@RequestMapping(value = "/view/{viewType}/page/{pageNumber}", method = RequestMethod.GET)
+	public IndexView indexViewTypeWithPage(Locale locale, Model model,
+			@PathVariable("viewType") String viewType,
+			@PathVariable("pageNumber") Integer pageNumber) {
+		
+		IndexView returnView = new IndexView();
+		
+		System.out.println(model.containsAttribute("viewType"));
+		
+		returnView.setViewType(viewType);
+		returnView.setPageNumber(pageNumber);
+		
+		mangaHitzRESTful.getLastReleaseManga(viewType,pageNumber,"");
+		
+		
+		return returnView;
 	}
 	
 	@RequestMapping(value = "/{mangaName}", method = RequestMethod.GET)
