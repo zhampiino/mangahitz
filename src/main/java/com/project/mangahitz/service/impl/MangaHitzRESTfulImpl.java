@@ -98,7 +98,13 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 	       
 	       JSONObject jsonResponse = new JSONObject(responseBody);
 	       
+	       mgResponse.setStatus(jsonResponse.getBoolean("status"));
 	       
+	       if(!jsonResponse.isNull("")){
+	    	   
+	       }
+	       
+	       mgResponse.setTotalPages(jsonResponse.getInt("total_pages"));
 	       
 	       if(jsonResponse.getBoolean("status")){
 	    	   

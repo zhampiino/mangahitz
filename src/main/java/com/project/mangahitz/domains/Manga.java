@@ -16,6 +16,7 @@ public class Manga {
 	private String picUrl;
 	private Integer rate;
 	private String createDate;
+	private String status;
 	private List<MangaEp> mangaEps;
 	
 	public List<MangaEp> getMangaEps() {
@@ -121,6 +122,12 @@ public class Manga {
 	public void setYearRelease(String yearRelease) {
 		this.yearRelease = yearRelease;
 	}
-	
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	
 }

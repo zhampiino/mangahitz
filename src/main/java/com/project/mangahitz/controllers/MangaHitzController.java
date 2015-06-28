@@ -57,7 +57,7 @@ public class MangaHitzController {
 		
 		returnView.setViewType(viewType);
 		
-		mangaHitzRESTful.getLastReleaseManga(viewType,0,"");
+		//mangaHitzRESTful.getLastReleaseManga(viewType,0,"");
 		
 		
 		return returnView;
@@ -75,7 +75,7 @@ public class MangaHitzController {
 		returnView.setViewType(viewType);
 		returnView.setPageNumber(pageNumber);
 		
-		mangaHitzRESTful.getLastReleaseManga(viewType,pageNumber,"");
+		//mangaHitzRESTful.getLastReleaseManga(viewType,pageNumber,"");
 		
 		
 		return returnView;

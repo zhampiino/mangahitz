@@ -1,16 +1,21 @@
 package com.project.mangahitz.domains;
 
+import java.util.List;
+
 
 public class MangaEp {
 
 	private Integer mangaEpId;
-	private String epNo;
+	private Integer mangaId;
+	private Integer epNo;
 	private String epName;
 	private String releaseDate;
 	private Integer rate;
 	private String createDate;
 	private Manga manga;
-
+	private List<MangaEpPic> mangaEpPics;
+	
+	
 	public Integer getMangaEpId() {
 		return mangaEpId;
 	}
@@ -19,11 +24,19 @@ public class MangaEp {
 		this.mangaEpId = mangaEpId;
 	}
 
-	public String getEpNo() {
+	public Integer getMangaId() {
+		return mangaId;
+	}
+
+	public void setMangaId(Integer mangaId) {
+		this.mangaId = mangaId;
+	}
+	
+	public Integer getEpNo() {
 		return epNo;
 	}
 
-	public void setEpNo(String epNo) {
+	public void setEpNo(Integer epNo) {
 		this.epNo = epNo;
 	}
 
@@ -65,5 +78,13 @@ public class MangaEp {
 
 	public void setManga(Manga manga) {
 		this.manga = manga;
+	}
+
+	public List<MangaEpPic> getMangaEpPics() {
+		return mangaEpPics;
+	}
+
+	public void setMangaEpPics(List<MangaEpPic> mangaEpPics) {
+		this.mangaEpPics = mangaEpPics;
 	}
 }
