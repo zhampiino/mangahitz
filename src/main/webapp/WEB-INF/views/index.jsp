@@ -49,8 +49,48 @@
                   	<!------------------------->
                   	<!-- View type List View -->
                   	<!------------------------->
-                	<c:if test="${viewType eq 'list' }">               	
-                		<div class="row layout-view list-view">	                    
+                	<c:if test="${viewType eq 'list' }">       
+                	
+                		<c:if test="${not empty mangas}">
+                		
+	                		<div class="row layout-view list-view">	                                     
+		                    		<!-- Items -->                                    
+		                    		<div class="item col-xs-12 col-sm-12 col-lg-12 col-md-12">	     							
+											<ul class="list-group">
+												<c:forEach var="manga" items="${mangas }">
+													<li class="list-group-item">
+	                                                	<div class="manga-name"><b><a href="#">${manga.name }</a></b></div>
+														<c:if test="${not empty manga.mangaEps }">
+															<c:forEach var="mangaEp" items="${manga.mangaEps }">
+																<div class="manga-chapters">                                                       
+				                                                    <div class="title pull-left"><a href="/naruto">${mangaEp.epName }</a></div>
+				                                                    <div class="group pull-right">
+				                                                        <span class="date">
+				                                                            ${mangaEp.releaseDate }
+				                                                        </span>
+				                                                        <span class="ratings">
+				                                                            <span class="glyphicon glyphicon-star"></span>
+				                                                            <span class="glyphicon glyphicon-star"></span>
+				                                                            <span class="glyphicon glyphicon-star"></span>
+				                                                            <span class="glyphicon glyphicon-star"></span>
+				                                                            <span class="glyphicon glyphicon-star"></span>
+				                                                        </span>   
+				                                                    </div>
+				                                                </div>
+															</c:forEach>
+														</c:if>
+													</li>
+												</c:forEach>
+											</ul>            
+		                    		</div>		                     		  	                     	                     
+			                		                     	                	 	 
+	                    	</div><!-- End row -->
+                		
+                		</c:if>
+                	        	
+                		<%-- <div class="row layout-view list-view">	                    
+		                    		      
+		                    			      
 		                    		                    
 	                    		<!-- Items -->                                    
 	                    		<div class="item col-xs-12 col-sm-12 col-lg-12 col-md-12">	     
@@ -115,15 +155,48 @@
 	                                                      
 	                    		</div>		                     		  	                     	                     
 		                		                     	                	 	 
-                    	</div><!-- End row -->
+                    	</div><!-- End row --> --%>
                     </c:if>
                     
                     
                   	<!------------------------->
                   	<!-- View type Grid View -->
                   	<!------------------------->
-                	<c:if test="${viewType eq 'grid' }">               	
-                		<div class="row layout-view grid-view">	                    
+                	<c:if test="${viewType eq 'grid' }">           
+                	
+                		<c:if test="${not empty mangaEps }">
+                			<div class="row layout-view grid-view">
+                				<c:forEach var="mangaEp" items="${mangaEps }">
+								<div class="item col-xs-6 col-sm-6 col-lg-3 col-md-3">
+									<div class="thumbnail">
+										<a href="/${mangaEp.manga.name }/${mangaEp.epNo }"> <img
+											src="${mangaEp.manga.picUrl }"
+											alt="" />
+											<div class="caption">
+												<h5>${mangaEp.manga.name }</h5>
+												<p>${mangaEp.epName }</p>
+												<div class="wrapper">
+													<p class="pull-right">${mangaEp.rate } reviews</p>
+													<p class="ratings">
+														<span class="glyphicon glyphicon-star"></span>
+														<span class="glyphicon glyphicon-star"></span> 
+														<span class="glyphicon glyphicon-star"></span> 
+														<span class="glyphicon glyphicon-star"></span> 
+														<span class="glyphicon glyphicon-star"></span>
+													</p>
+												</div>
+											</div>
+											<!-- End caption -->
+										</a>
+									</div>
+									<!-- End thumbnail -->
+								</div>
+							</c:forEach>
+                			
+                			</div>
+                		</c:if>
+                	    	
+                		<%-- <div class="row layout-view grid-view">	                    
 		                    <c:forEach var="i" begin="1" end="10"> 		                    
 	                    		<!-- Items -->                                    
 	                    		<div class="item col-xs-6 col-sm-6 col-lg-3 col-md-3">	     
@@ -148,7 +221,7 @@
 		                            </div><!-- End thumbnail --> 		                                                      
 	                      		</div>		                     		  	                     	                     
 		                     </c:forEach>	                     	                	 	 
-                    	</div><!-- End row -->
+                    	</div><!-- End row --> --%>
                     </c:if>
                     
      

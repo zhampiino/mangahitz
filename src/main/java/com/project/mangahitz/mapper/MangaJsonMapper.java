@@ -45,15 +45,15 @@ public class MangaJsonMapper {
 		if(!jsonObj.isNull("rate"))
 			result.setRate(jsonObj.getInt("rate"));
 		
-		if(jsonObj.isNull("publishing"))
+		if(!jsonObj.isNull("publishing"))
 			result.setPublishing(jsonObj.getString("publishing"));
 		
-		if(jsonObj.isNull("manga_ep"))
+		if(!jsonObj.isNull("manga_ep"))
 		{
 			
 		}
 		
-		if(jsonObj.isNull("manga_eps")){
+		if(!jsonObj.isNull("manga_eps")){
 		
 			JSONArray jsonArr = jsonObj.getJSONArray("manga_eps");
 			
@@ -64,7 +64,7 @@ public class MangaJsonMapper {
 		return result;
 	}
 	
-	public List<Manga> toMangas(JSONArray jsonArr){
+	public static List<Manga> toMangas(JSONArray jsonArr){
 		
 		List<Manga> result = new ArrayList<Manga>();
 		

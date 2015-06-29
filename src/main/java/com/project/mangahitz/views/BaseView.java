@@ -6,9 +6,13 @@ public class BaseView extends ModelAndView {
 
 	private boolean status;
 	private String msg;
+	private Integer totalPages;
+	private Integer pageNumber;
 	
 	public BaseView(){
 		this.setStatus(false);
+		this.setPageNumber(1);
+		this.setTotalPages(1);
 	}
 	
 	public boolean isStatus() {
@@ -30,6 +34,26 @@ public class BaseView extends ModelAndView {
 		this.addObject("msg", msg);
 	}
 	
+	public Integer getPageNumber() {
+		return pageNumber;
+	}
+
+
+	public void setPageNumber(Integer pageNumber) {
+		this.pageNumber = pageNumber;
+		
+		this.addObject("pageNumber", pageNumber);
+	}
+
+	public Integer getTotalPages() {
+		return totalPages;
+	}
+
+	public void setTotalPages(Integer totalPages) {
+		this.totalPages = totalPages;
+		
+		this.addObject("totalPages", totalPages);
+	}
 	
 	
 }

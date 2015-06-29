@@ -1,0 +1,17 @@
+package com.project.mangahitz.constants;
+
+public class MGHConstants {
+
+	public final static String MANGAHITZ_RESTFUL_URL = "http://localhost:8092/";
+	public final static String GET_LATEST_MANGA = "getLastestManga";
+	
+	
+	public final static String VIEW_TYPE_GRID = "grid";
+	public final static String VIEW_TYPE_LIST = "list";
+	
+	public final static String RELEASE_LASTEST = "lastest";
+	public final static String RELEASE_LAST = "last";
+	public final static String RELEASE_OLD = "old";
+}
+
+

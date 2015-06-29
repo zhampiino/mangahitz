@@ -1,5 +1,6 @@
 package com.project.mangahitz.controllers;
 
+import java.security.spec.MGF1ParameterSpec;
 import java.util.Locale;
 
 import org.slf4j.Logger;
@@ -12,6 +13,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.project.mangahitz.constants.MGHConstants;
+import com.project.mangahitz.domains.response.MangaResponse;
 import com.project.mangahitz.service.MangaHitzRESTful;
 import com.project.mangahitz.views.IndexView;
 
@@ -39,11 +42,19 @@ public class MangaHitzController {
 
 		IndexView returnView = new IndexView();
 		
-		returnView.setViewType("list");
+		returnView.setViewType(MGHConstants.VIEW_TYPE_LIST);
 		
-		//model.addAttribute("viewType", "list");
+		MangaResponse mgResponse = mangaHitzRESTful.getLastReleaseManga(returnView.getViewType(), returnView.getPageNumber(), MGHConstants.RELEASE_LASTEST);
 		
+		returnView.setStatus(mgResponse.isStatus());
+		returnView.setMsg(mgResponse.getMsg());
+		returnView.setTotalPages(mgResponse.getTotalPages());
 		
+		if(returnView.getViewType().equals(MGHConstants.VIEW_TYPE_LIST)){
+			returnView.setMangas(mgResponse.getMangas());
+		}else{
+			returnView.setMangaEps(mgResponse.getMangaEps());
+		}
 		
 		return returnView;
 	}
@@ -53,12 +64,19 @@ public class MangaHitzController {
 		
 		IndexView returnView = new IndexView();
 		
-		System.out.println(model.containsAttribute("viewType"));
-		
 		returnView.setViewType(viewType);
 		
-		//mangaHitzRESTful.getLastReleaseManga(viewType,0,"");
+		MangaResponse mgResponse = mangaHitzRESTful.getLastReleaseManga(returnView.getViewType(), returnView.getPageNumber(), MGHConstants.RELEASE_LAST);
 		
+		returnView.setStatus(mgResponse.isStatus());
+		returnView.setMsg(mgResponse.getMsg());
+		returnView.setTotalPages(mgResponse.getTotalPages());
+		
+		if(returnView.getViewType().equals(MGHConstants.VIEW_TYPE_LIST)){
+			returnView.setMangas(mgResponse.getMangas());
+		}else{
+			returnView.setMangaEps(mgResponse.getMangaEps());
+		}
 		
 		return returnView;
 	}
@@ -74,9 +92,6 @@ public class MangaHitzController {
 		
 		returnView.setViewType(viewType);
 		returnView.setPageNumber(pageNumber);
-		
-		//mangaHitzRESTful.getLastReleaseManga(viewType,pageNumber,"");
-		
 		
 		return returnView;
 	}
