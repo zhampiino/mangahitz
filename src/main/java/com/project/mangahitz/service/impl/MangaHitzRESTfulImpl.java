@@ -21,8 +21,6 @@ import com.project.mangahitz.service.MangaHitzRESTful;
 @Component("mangaHitzRESTful")
 public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 
-	private final Integer CONTENT_LENGHT = 500;
-	
 	private HttpURLConnection createConnection(String urlName, Boolean enableProxy, String requestMethod,Integer contentLenght) throws IOException{
 		
 		HttpURLConnection connection;
@@ -78,6 +76,12 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 		
 	}
 	
+	private JSONObject newJsonRequest(){
+		JSONObject jsonRequest = new JSONObject();
+		jsonRequest.put("md5_key", MGHConstants.MD5_KEY_GENERATOR);
+		return jsonRequest;
+	}
+	
 	@Override
 	public MangaResponse getLastReleaseManga(String viewType,Integer pageNumber,String releaseType) {
 		
@@ -86,7 +90,7 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 		try
 		{
 		
-			JSONObject jsonRequest = new JSONObject();
+			JSONObject jsonRequest = this.newJsonRequest();
 			jsonRequest.put("view_type", viewType);
 			jsonRequest.put("page_number", pageNumber);
 			jsonRequest.put("release_type", releaseType);
@@ -94,7 +98,6 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 			
 			HttpURLConnection connection = this.createConnection(String.format("%s%s",MGHConstants.MANGAHITZ_RESTFUL_URL,MGHConstants.GET_LATEST_MANGA), false, "POST",jsonRequest.length());
 			
-//			{"view_type":"list","page_number":0,"release_type":"old"}
 			this.writeRequest(connection, jsonRequest.toString());
 	        
 	       String responseBody = this.readResponse(connection);
@@ -136,6 +139,144 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 	    		   mgResponse.setMangaEps(MangaEpJsonMapper.toMangaEps(jsonArr));
 	    	   }
 	    	   
+	       }
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			
+		}
+		
+		return mgResponse;
+	}
+
+	@Override
+	public MangaResponse getPopularManga() {
+		
+		MangaResponse mgResponse = new MangaResponse();
+		
+		try
+		{
+		
+			JSONObject jsonRequest = this.newJsonRequest();			
+			
+			HttpURLConnection connection = this.createConnection(String.format("%s%s",MGHConstants.MANGAHITZ_RESTFUL_URL,MGHConstants.GET_POPULAR_MANGA), false, "POST",jsonRequest.length());
+			
+			this.writeRequest(connection, jsonRequest.toString());
+	        
+	       String responseBody = this.readResponse(connection);
+	       
+	       JSONObject jsonResponse = new JSONObject(responseBody);
+	       
+	       mgResponse.setStatus(jsonResponse.getBoolean("status"));
+	       
+	       if(!jsonResponse.isNull("msg")){
+	    	   mgResponse.setMsg(jsonResponse.getString("msg"));
+	       }
+	       
+	       if(jsonResponse.getBoolean("status")){
+	    	   
+	    	   if(!jsonResponse.isNull("top_5_mangas")){
+	    		   
+	    		   JSONArray jsonArr = jsonResponse.getJSONArray("top_5_mangas");
+	    		   if(jsonArr != null)
+	    			   mgResponse.setTop5Mangas(MangaJsonMapper.toMangas(jsonArr));
+	    	   }
+	    	   
+	    	   if(!jsonResponse.isNull("popular_mangas")){
+	    		   
+	    		   JSONArray jsonArr = jsonResponse.getJSONArray("popular_mangas");
+	    		   mgResponse.setPopularMangas(MangaJsonMapper.toMangas(jsonArr));
+	    	   }
+	    	   
+	       }
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			
+		}
+		
+		return mgResponse;
+	}
+
+	@Override
+	public MangaResponse getMangaByName(String name,Integer pageNumber) {
+		
+		MangaResponse mgResponse = new MangaResponse();
+		
+		try
+		{
+		
+			JSONObject jsonRequest = this.newJsonRequest();	
+			jsonRequest.put("manga_name", name);
+			jsonRequest.put("page_number", pageNumber);
+			
+			HttpURLConnection connection = this.createConnection(String.format("%s%s",MGHConstants.MANGAHITZ_RESTFUL_URL,MGHConstants.GET_MANGA_BY_NAME), false, "POST",jsonRequest.length());
+			
+			this.writeRequest(connection, jsonRequest.toString());
+	        
+	       String responseBody = this.readResponse(connection);
+	       
+	       JSONObject jsonResponse = new JSONObject(responseBody);
+	       
+	       mgResponse.setStatus(jsonResponse.getBoolean("status"));
+	       
+	       if(!jsonResponse.isNull("msg")){
+	    	   mgResponse.setMsg(jsonResponse.getString("msg"));
+	       }
+	       
+	       if(jsonResponse.getBoolean("status")){
+	    	   
+	    	   if(!jsonResponse.isNull("manga")){
+	    		   JSONObject jsonObj = jsonResponse.getJSONObject("manga");
+	    		   mgResponse.setManga(MangaJsonMapper.toManga(jsonObj));
+	    	   }
+	    	   
+	    	   
+	       }
+			
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}finally{
+			
+		}
+		
+		return mgResponse;
+	}
+
+	@Override
+	public MangaResponse getMangaEp(String name, Integer epNo) {
+		
+		MangaResponse mgResponse = new MangaResponse();
+		
+		try
+		{
+		
+			JSONObject jsonRequest = this.newJsonRequest();			
+			jsonRequest.put("manga_name", name);
+			jsonRequest.put("ep_no", epNo);
+			
+			HttpURLConnection connection = this.createConnection(String.format("%s%s",MGHConstants.MANGAHITZ_RESTFUL_URL,MGHConstants.GET_MANGA_EP), false, "POST",jsonRequest.length());
+			
+			this.writeRequest(connection, jsonRequest.toString());
+	        
+	       String responseBody = this.readResponse(connection);
+	       
+	       JSONObject jsonResponse = new JSONObject(responseBody);
+	       
+	       mgResponse.setStatus(jsonResponse.getBoolean("status"));
+	       
+	       if(!jsonResponse.isNull("msg")){
+	    	   mgResponse.setMsg(jsonResponse.getString("msg"));
+	       }
+	       
+	       if(jsonResponse.getBoolean("status")){
+	    	   
+	    	   if(!jsonResponse.isNull("manga_ep")){
+	    		   JSONObject jsonObj = jsonResponse.getJSONObject("manga_ep");
+	    		   mgResponse.setManga(MangaJsonMapper.toManga(jsonObj));
+	    	   }
 	       }
 			
 		}catch(Exception ex){

@@ -3,14 +3,17 @@ package com.project.mangahitz.controllers;
 import java.security.spec.MGF1ParameterSpec;
 import java.util.Locale;
 
+import org.apache.log4j.varia.FallbackErrorHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.project.mangahitz.constants.MGHConstants;
@@ -38,52 +41,36 @@ public class MangaHitzController {
 	 * Simply selects the home view to render by returning its name.
 	 */
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public IndexView index(Locale locale, Model model) {
+	public IndexView index(Locale locale, Model model,@RequestParam(value="viewType", required = false) String viewType) {
 
 		IndexView returnView = new IndexView();
 		
-		returnView.setViewType(MGHConstants.VIEW_TYPE_LIST);
+		if(viewType == null || viewType.equals(""))
+			returnView.setViewType(MGHConstants.VIEW_TYPE_LIST);
+		else
+			returnView.setViewType(viewType);
 		
-		MangaResponse mgResponse = mangaHitzRESTful.getLastReleaseManga(returnView.getViewType(), returnView.getPageNumber(), MGHConstants.RELEASE_LASTEST);
+		MangaResponse lastest = mangaHitzRESTful.getLastReleaseManga(returnView.getViewType(), returnView.getPageNumber(), MGHConstants.RELEASE_LASTEST);
 		
-		returnView.setStatus(mgResponse.isStatus());
-		returnView.setMsg(mgResponse.getMsg());
-		returnView.setTotalPages(mgResponse.getTotalPages());
+		returnView.setStatus(lastest.isStatus());
+		returnView.setMsg(lastest.getMsg());
+		returnView.setTotalPages(lastest.getTotalPages());
 		
 		if(returnView.getViewType().equals(MGHConstants.VIEW_TYPE_LIST)){
-			returnView.setMangas(mgResponse.getMangas());
+			returnView.setMangas(lastest.getMangas());
 		}else{
-			returnView.setMangaEps(mgResponse.getMangaEps());
+			returnView.setMangaEps(lastest.getMangaEps());
 		}
+		MangaResponse popular = mangaHitzRESTful.getPopularManga();
+		returnView.setTop5Mangas(popular.getTop5Mangas());
+		returnView.setPopularMangas(popular.getPopularMangas());
 		
 		return returnView;
 	}
 	
-	@RequestMapping(value = "/view/{viewType}", method = RequestMethod.GET)
-	public IndexView indexViewType(Locale locale, Model model,@PathVariable("viewType") String viewType) {
-		
-		IndexView returnView = new IndexView();
-		
-		returnView.setViewType(viewType);
-		
-		MangaResponse mgResponse = mangaHitzRESTful.getLastReleaseManga(returnView.getViewType(), returnView.getPageNumber(), MGHConstants.RELEASE_LAST);
-		
-		returnView.setStatus(mgResponse.isStatus());
-		returnView.setMsg(mgResponse.getMsg());
-		returnView.setTotalPages(mgResponse.getTotalPages());
-		
-		if(returnView.getViewType().equals(MGHConstants.VIEW_TYPE_LIST)){
-			returnView.setMangas(mgResponse.getMangas());
-		}else{
-			returnView.setMangaEps(mgResponse.getMangaEps());
-		}
-		
-		return returnView;
-	}
-	
-	@RequestMapping(value = "/view/{viewType}/page/{pageNumber}", method = RequestMethod.GET)
+	@RequestMapping(value = "/latest-chapters/{pageNumber}", method = RequestMethod.GET)
 	public IndexView indexViewTypeWithPage(Locale locale, Model model,
-			@PathVariable("viewType") String viewType,
+			@RequestParam(value="viewType", required = true) String viewType,
 			@PathVariable("pageNumber") Integer pageNumber) {
 		
 		IndexView returnView = new IndexView();
@@ -101,14 +88,20 @@ public class MangaHitzController {
 		
 		model.addAttribute("mangaName", mangaName);
 		
+		MangaResponse mgResponse = mangaHitzRESTful.getMangaByName(mangaName,1);
+		
 		return "manga";
 	}
 	
-	@RequestMapping(value = "/{mangaName}/{mangaEp}", method = RequestMethod.GET)
-	public String mangaEp(Locale locale, Model model,@PathVariable("mangaName") String mangaName,@PathVariable("mangaEp") Integer mangaEp) {
+	@RequestMapping(value = "/{mangaName}/{mangaEpNo}", method = RequestMethod.GET)
+	public String mangaEp(Locale locale, Model model,
+			@PathVariable("mangaName") String mangaName,
+			@PathVariable("mangaEpNo") Integer mangaEpNo) {
 		
 		model.addAttribute("mangaName", mangaName);
-		model.addAttribute("mangaEp", mangaEp);
+		model.addAttribute("mangaEpNo", mangaEpNo);
+		
+		MangaResponse mgResponse = mangaHitzRESTful.getMangaEp(mangaName, mangaEpNo);
 		
 		return "manga_ep";
 	}

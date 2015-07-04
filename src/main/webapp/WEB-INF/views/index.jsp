@@ -34,12 +34,12 @@
                                 <strong></strong>
                                 <div class="btn-group btn-layout-view">
 	                                <c:if test="${viewType eq 'list' }">
-	                                	<a href="/view/list" class="btn btn-default btn-xs list active"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
-		                                <a href="/view/grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+	                                	<a href="/?viewType=list" class="btn btn-default btn-xs list active"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
+		                                <a href="/?viewType=grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
 	                                </c:if>
 	                                <c:if test="${viewType eq 'grid' }">
-	                                	<a href="/view/list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
-		                                <a href="/view/grid" class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+	                                	<a href="/?viewType=list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
+		                                <a href="/?viewType=grid" class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
 	                                </c:if>
                                 </div>
                             </div>
@@ -59,11 +59,11 @@
 											<ul class="list-group">
 												<c:forEach var="manga" items="${mangas }">
 													<li class="list-group-item">
-	                                                	<div class="manga-name"><b><a href="#">${manga.name }</a></b></div>
+	                                                	<div class="manga-name"><b><a href="/${manga.name }">${manga.name }</a></b></div>
 														<c:if test="${not empty manga.mangaEps }">
 															<c:forEach var="mangaEp" items="${manga.mangaEps }">
 																<div class="manga-chapters">                                                       
-				                                                    <div class="title pull-left"><a href="/naruto">${mangaEp.epName }</a></div>
+				                                                    <div class="title pull-left"><a href="/${manga.name }/${mangaEp.epNo}">${mangaEp.epName }</a></div>
 				                                                    <div class="group pull-right">
 				                                                        <span class="date">
 				                                                            ${mangaEp.releaseDate }
@@ -236,15 +236,19 @@
                         <div class="panel panel-success">
                             <div class="panel-heading"><b>Popular Manga</b></div>
                             <div class="list-group">
-                                <a href="/naruto" class="list-group-item">
-                                    Naruto
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    Bleach
-                                </a>
-                                <a href="#" class="list-group-item">
-                                    One Piece
-                                </a>
+                            	<c:if test="${not empty top5Mangas }">
+                            		<c:forEach var="manga" items="${top5Mangas }">
+                            			 <a href="/${manga.name }" class="list-group-item">
+			                                    ${manga.name }
+			                                </a>
+                            		</c:forEach>
+                            	</c:if>
+                               	<c:if test="${empty top5Mangas }">
+                            		<a href="#" class="list-group-item">
+			                               Don't have top 5 popular
+			                          </a>
+                            	</c:if>
+                                
                             </div>
                         </div>
                     </div>
@@ -254,30 +258,16 @@
                         <div class="panel panel-success">
                             <div class="panel-heading"><b>Popular Manga</b></div>
                             <div class="list-group">
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
-                                <a href="#" class="list-group-item">Naruto</a>
-                                <a href="#" class="list-group-item">Bleach</a>
-                                <a href="#" class="list-group-item">One Piece</a>
+                            	<c:if test="${ not empty popularMangas }">
+                            		<c:forEach var="manga" items="${popularMangas }">
+                            			 <a href="/${manga.name }" class="list-group-item">${manga.name }</a>
+                            		</c:forEach>
+                            	</c:if>
+                            	<c:if test="${empty popularMangas }">
+                            		<a href="#" class="list-group-item">
+			                               Don't have popular
+			                          </a>
+                            	</c:if>
                             </div>
                         </div>
                     </div>

@@ -15,6 +15,10 @@ public class MangaResponse extends BaseResponse {
 	
 	private List<MangaEp> mangaEps;
 
+	private List<Manga> top5Mangas;
+	
+	private List<Manga> popularMangas;
+	
 	public Manga getManga() {
 		return manga;
 	}
@@ -45,6 +49,22 @@ public class MangaResponse extends BaseResponse {
 
 	public void setMangaEps(List<MangaEp> mangaEps) {
 		this.mangaEps = mangaEps;
+	}
+
+	public List<Manga> getTop5Mangas() {
+		return top5Mangas;
+	}
+
+	public void setTop5Mangas(List<Manga> top5Mangas) {
+		this.top5Mangas = top5Mangas;
+	}
+
+	public List<Manga> getPopularMangas() {
+		return popularMangas;
+	}
+
+	public void setPopularMangas(List<Manga> popularMangas) {
+		this.popularMangas = popularMangas;
 	}
 	
 	
