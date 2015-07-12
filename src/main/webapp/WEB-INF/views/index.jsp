@@ -4,16 +4,61 @@
 
 <c:import url="_header.jsp"></c:import>
 
-  
-
-
-    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <!-- Main jumbotron -->
     <div class="jumbotron">
         <div class="container">
-            <!--h1>READ MANGA ONLINE</h1-->
-            <p>Manga is the Japanese comics with a unique story line and style. In Japan people of all ages read manga, manga does not target younger audiences like american comics. The genre includes a broad range of subjects. Here you will find 1000s of free english translated manga scans to read online. Discover the world of otaku!</p>
-            <p><a class="btn btn-success" href="#" role="button">Learn more »</a></p>
+        	<div class="row">
+        		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        			<div class="thumbnail">
+        				<div class="img-wrap">
+        					<a href="naruto"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_200x0.jpg" /></a>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        			<div class="thumbnail">
+        				<div class="img-wrap">
+        					<a href="onepiece"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_200x0.png" /></a>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        			<div class="thumbnail">
+        				<div class="img-wrap">
+        					<a href="bleach"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/bleach_3_200x0.jpg" /></a>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        			<div class="thumbnail">
+        				<div class="img-wrap">
+        					<a href="toriko"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/toriko_7_200x0.jpg" /></a>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        			<div class="thumbnail">
+        				<div class="img-wrap">
+        					<a href="fairytail"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/fairytail_200x0.jpg" /></a>
+        				</div>
+        			</div>
+        		</div>
+        		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
+        			<div class="thumbnail">
+        				<div class="img-wrap">
+        					<a href="shokugekinosoma"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/shokugekinosoma_3_200x0.jpg" /></a>
+        				</div>
+        			</div>
+        		</div>
+        	</div>           
         </div>
+    </div>
+    
+    <div class="intro">
+    	<div class="container">
+    		<h3>READ MANGA ONLINE</h3>
+    		<p>Manga is the Japanese comics with a unique story line and style. In Japan people of all ages read manga, manga does not target younger audiences like american comics. Here you will find 1000s of free english translated manga scans to read online. Discover the world of otaku! Naruto 701, Naruto Gaiden: The Seventh Hokage 11, Bleach 635, One Piece 794, Fairy Tail 444, will coming next!</p>
+    	</div>
     </div>
 
     <!-- Page Content -->
@@ -21,7 +66,7 @@
 
         <div class="row">
         
-            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 main-content">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content">
             
             <c:if test="${viewType eq 'list' }">       
             <c:if test="${not empty mangas}">
@@ -35,7 +80,7 @@
                       		
                        		<li class="list-group-item">
                                 <div class="img-thumb-wrap">
-                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /> 
+                                    <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /></a>
                                 </div>
                                 <div class="manga-data">
                                     <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
@@ -86,7 +131,7 @@
                         	
 	                        	<li class="list-group-item">
 	                        		<div class="img-thumb-wrap">
-	                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_200x0.jpg" /> 
+	                                    <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_200x0.jpg" /></a> 
 	                                </div>
 	                                <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>   	                                
 	                        	</li>
@@ -108,7 +153,7 @@
 							
 	                        	<li class="list-group-item"> 
 	                        		<div class="img-thumb-wrap">
-	                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /> 
+	                                    <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /></a> 
 	                                </div>                       		
 	                                <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
                                     <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
