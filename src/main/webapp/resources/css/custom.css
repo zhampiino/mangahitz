@@ -34,12 +34,13 @@ a {
     color: #444;
     border-color: transparent;
     border-bottom: 5px solid #DA4453; }
-  .wrapper h3 {
+  .wrapper aside h3 {
     margin: 0;
     font-weight: bold;
     font-size: 16px;
     line-height: 40px;
     padding-top: 5px;
+    padding-bottom: 5px;
     color: #444; }
 
 .widget {
@@ -60,15 +61,22 @@ a {
     overflow: hidden;
     clear: both; }
     .list-group .list-group-item .manga-data {
-      overflow: hidden;
-      padding: 0 5px; }
-      .list-group .list-group-item .manga-data .manga-name a {
+      overflow: hidden; }
+    .list-group .list-group-item .manga-name {
+      line-height: 20px;
+      height: 20px; }
+      .list-group .list-group-item .manga-name a {
+        display: inline-block;
+        float: left;
         color: #DA4453; }
+      .list-group .list-group-item .manga-name a:hover {
+        color: #fda2ab; }
     .list-group .list-group-item .img-thumb-wrap {
       width: 36px;
-      height: 36px;
+      height: 40px;
       float: left;
       margin-top: 4px;
+      margin-right: 5px;
       overflow: hidden;
       -webkit-border-radius: 2px;
       -moz-border-radius: 2px;
@@ -81,32 +89,59 @@ a {
     border-left: 5px solid #ecf0f1;
     padding-left: 5px;
     padding-right: 5px;
-    overflow: hidden; }
+    overflow: hidden;
+    line-height: 20px;
+    height: 20px; }
     .list-group .manga-chapters a {
+      display: inline-block;
+      float: left;
       color: #666;
       font-size: 12px;
-      line-height: 20px;
       text-decoration: none; }
     .list-group .manga-chapters a:hover {
-      color: #DA4453; }
-    .list-group .manga-chapters .date {
-      padding-right: 5px;
-      margin-right: 5px;
-      border-right: 1px solid #dadada; }
+      color: #ec808b; }
     .list-group .manga-chapters .title {
       white-space: nowrap;
       text-overflow: ellipsis;
-      line-height: 21px;
       overflow: hidden; }
     .list-group .manga-chapters .opt {
       font-size: 12px;
-      line-height: 21px;
       color: #666; }
+      .list-group .manga-chapters .opt .date,
       .list-group .manga-chapters .opt .ratings {
+        float: left; }
+      .list-group .manga-chapters .opt .ratings {
+        padding-left: 5px;
+        margin-left: 5px;
+        border-left: 1px solid #F2F2F2;
         color: #DA4453; }
   .list-group .manga-chapters:hover {
     border-left: 5px solid #DA4453;
     background: #f7f7f7; }
+
+aside.popular-manga .list-group-item .img-thumb-wrap {
+  margin-top: 0;
+  margin-right: 10px; }
+aside.popular-manga .list-group-item .manga-name {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: 40px;
+  height: 40px; }
+  aside.popular-manga .list-group-item .manga-name a {
+    font-size: 12px; }
+
+aside.popular-manga-chapter .list-group-item .img-thumb-wrap {
+  margin-top: 0;
+  margin-right: 10px; }
+aside.popular-manga-chapter .list-group-item .manga-name,
+aside.popular-manga-chapter .list-group-item .manga-chapters {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden; }
+  aside.popular-manga-chapter .list-group-item .manga-name a,
+  aside.popular-manga-chapter .list-group-item .manga-chapters a {
+    font-size: 12px; }
 
 .btn-more {
   background: #333;
@@ -134,7 +169,7 @@ a {
 
 @media (max-width: 767px) {
   .list-group .manga-chapters .title {
-    width: 90%; } }
+    width: 98%; } }
 @media (min-width: 768px) {
   .list-group .manga-chapters .title {
     width: 400px; } }

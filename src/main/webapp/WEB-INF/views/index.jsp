@@ -38,16 +38,16 @@
                                     <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /> 
                                 </div>
                                 <div class="manga-data">
-                                    <div class="manga-name"><b><a href="/${manga.name }">${manga.name }</a></b></div>
+                                    <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
                                     
                                     <c:if test="${not empty manga.mangaEps }">
 									<c:forEach var="mangaEp" items="${manga.mangaEps }">
 	                                    
 	                                    <div class="manga-chapters"> 
-	                                        <div class="title pull-left"><a href="/${manga.name }/${mangaEp.epNo}">${mangaEp.epName }</a></div>
-	                                        <div class="opt pull-right hidden-xs">
-	                                            <span class="date">${mangaEp.releaseDate }</span>
-	                                            <span class="ratings">
+	                                        <div class="title pull-left"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
+	                                        <div class="opt pull-right">
+	                                            <span class="date hidden-xs">${mangaEp.releaseDate }</span>
+	                                            <span class="ratings hidden-sm hidden-xs">
 	                                                <span class="glyphicon glyphicon-star"></span>
 	                                                <span class="glyphicon glyphicon-star"></span>
 	                                                <span class="glyphicon glyphicon-star-empty"></span>
@@ -72,203 +72,63 @@
             </c:if>
             </c:if>
 
-                <section class="section-recent-releases">
-                	<div class="wrapper"> 
-                		<h1>Recent Releases</h1>
-
-                                                <ul class="list-group">
-                            <!-- span class="">15 reviews</span --> 
-                            <li class="list-group-item">
-                                <div class="img-thumb-wrap">
-                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /> 
-                                </div>
-                                <div class="manga-data">
-
-                                    <div class="manga-name"><b><a href="/naruto">Naruto</a></b></div>
-                                    <div class="manga-chapters"> 
-                                        <div class="title pull-left"><a href="/naruto">Ch. 700.5 - Naruto Book of Wind Naruto Book of Wind Naruto Book of Wind Naruto Book of Wind Naruto Book of Wind</a></div>
-                                        <div class="opt pull-right hidden-xs">
-                                            <span class="date">25-07-2015</span>
-                                            <span class="ratings">
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                            </span>   
-                                        </div>
-                                    </div>
-                                    <div class="manga-chapters">                                                       
-                                        <div class="title pull-left"><a href="/naruto">Ch. 700.5 - Naruto Book of Wind </a></div>
-                                        <div class="opt pull-right hidden-xs">
-                                            <span class="date">25-07-2015</span>
-                                            <span class="ratings">
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                            </span>   
-                                        </div>
-                                    </div>
-                                    <div class="manga-chapters">                                                       
-                                        <div class="title pull-left"><a href="/naruto">Ch. 700.5 - Naruto Book of Wind</a></div>
-                                        <div class="opt pull-right hidden-xs">
-                                            <span class="date">25-07-2015</span>
-                                            <span class="ratings">
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                            </span>   
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="img-thumb-wrap">
-                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_36x0.jpg" /> 
-                                </div>
-                                <div class="manga-data">
-
-                                    <div class="manga-name"><b><a href="/naruto">One Piece</a></b></div>
-                                    <div class="manga-chapters"> 
-                                        <div class="title pull-left"><a href="/naruto">Ch. 791 - เศษหิน</a></div>
-                                        <div class="opt pull-right hidden-xs">
-                                            <span class="date">25-07-2015</span>
-                                            <span class="ratings">
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                            </span>   
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="img-thumb-wrap">
-                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_36x0.jpg" /> 
-                                </div>
-                                <div class="manga-data">
-
-                                    <div class="manga-name"><b><a href="/naruto">One Piece</a></b></div>
-                                    <div class="manga-chapters"> 
-                                        <div class="title pull-left"><a href="/naruto">Ch. 791 - เศษหิน</a></div>
-                                        <div class="opt pull-right hidden-xs">
-                                            <span class="date">25-07-2015</span>
-                                            <span class="ratings">
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                            </span>   
-                                        </div>
-                                    </div>
-
-                                </div>
-
-                            </li>
-                            <li class="list-group-item">
-                                <div class="img-thumb-wrap">
-                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_36x0.jpg" /> 
-                                </div>
-                                <div class="manga-data">
-
-                                    <div class="manga-name"><b><a href="/naruto">One Piece</a></b></div>
-                                    <div class="manga-chapters"> 
-                                        <div class="title pull-left"><a href="/naruto">Ch. 791 - เศษหิน</a></div>
-                                        <div class="opt pull-right hidden-xs">
-                                            <span class="date">25-07-2015</span>
-                                            <span class="ratings">
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star"></span>
-                                                <span class="glyphicon glyphicon-star-empty"></span>
-                                            </span>   
-                                        </div>
-                                    </div>
-                                    
-                                </div>
-
-                            </li>
-
-                        </ul>
-
-                	</div>
-                </section>
-
-            	<a href="#" class="btn btn-more col-xs-12 col-sm-12 col-md-12 col-lg-12">Older Releases</a>
+			<a href="#" class="btn btn-more col-xs-12 col-sm-12 col-md-12 col-lg-12">View All</a>
 
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 widget">
                 <div class="wrapper">
-                    <aside>
-                        <h3>Manga Hitz : Top 5</h3>
+                    <aside class="popular-manga">
+                        <h3>Popular Manga</h3>
                         <ul class="list-group">
-                            <li class="list-group-item">
-                                <a>Naruto</a>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <a>Naruto</a>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <a>Naruto</a>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <a>Naruto</a>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <a>Naruto</a>
-                                <p>Chapter 999</p>
-                            </li>
+                        
+                        	<c:forEach var="manga" items="${mangas }">
+                        	
+	                        	<li class="list-group-item">
+	                        		<div class="img-thumb-wrap">
+	                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/naruto_200x0.jpg" /> 
+	                                </div>
+	                                <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>   	                                
+	                        	</li>
+	                        	
+                        	</c:forEach>
+                        	
                         </ul>
-                    </aside>
-
-                    <aside>
-                        <h3>Manga Hitz : 6 - 10</h3>
-                        <ul class="list-group">
-                            <li class="list-group-item">
-                                <p>Naruto</p>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <p>Naruto</p>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <p>Naruto</p>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <p>Naruto</p>
-                                <p>Chapter 999</p>
-                            </li>
-                            <li class="list-group-item">
-                                <p>Naruto</p>
-                                <p>Chapter 999</p>
-                            </li>
-                        </ul>
-                    </aside>
+                    </aside>                   
                 </div>
+                
                 <div class="wrapper">
-                    <aside>
-                        <h3>Social</h3>
+                    <aside class="popular-manga-chapter">
+                        <h3>Popular Chapter</h3>
+                        <ul class="list-group">
+                        
+                        	<c:forEach var="manga" items="${mangas }">
+                        	<c:if test="${not empty manga.mangaEps }">
+							<c:forEach var="mangaEp" items="${manga.mangaEps }">
+							
+	                        	<li class="list-group-item"> 
+	                        		<div class="img-thumb-wrap">
+	                                    <img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /> 
+	                                </div>                       		
+	                                <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
+                                    <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
+	                        	</li>
+	                        	 
+	                       	</c:forEach>
+		                    </c:if> 
+                        	</c:forEach>
+                        	
+                        </ul>
                     </aside>
                 </div>
+                
+                <div class="wrapper">
+                    <aside class="Social">
+                        <h3>Social</h3>
+                        
+                    </aside>
+                </div>
+                
             </div>
 
 
