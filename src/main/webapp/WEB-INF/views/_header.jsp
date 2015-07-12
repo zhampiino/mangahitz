@@ -18,8 +18,7 @@
     <title>MangaHitz - Online Manga Reader ${mangaName }</title>
 
     <!-- Bootstrap Core CSS -->
-    <!--link href="css/bootstrap.min.css" rel="stylesheet"-->
-    <link href="${defaultPath}/css/flaty-bootstrap.min.css" rel="stylesheet">
+    <link href="${defaultPath}/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="${defaultPath}/css/custom.css" rel="stylesheet">
