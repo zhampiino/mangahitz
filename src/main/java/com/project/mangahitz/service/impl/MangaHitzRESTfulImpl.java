@@ -1,8 +1,10 @@
 package com.project.mangahitz.service.impl;
 
+import java.io.BufferedReader;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
@@ -37,8 +39,8 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 		connection.setRequestMethod(requestMethod);
 		//connection.setRequestProperty("Host","webagentdev.arx.com"); 
 		connection.setRequestProperty("Content-length", String.valueOf(contentLenght)); 
-		connection.setRequestProperty("Content-Type","application/json"); 
-		connection.setRequestProperty("Accept", "application/json");
+		connection.setRequestProperty("Content-Type","application/json;charset=utf-8"); 
+		connection.setRequestProperty("Accept", "application/json;charset=utf-8");
 //		con.setRequestProperty("Content-Type","application/x-www-form-urlencoded"); 
 		//connection.setRequestProperty("Expect","100-continue"); 
         //connection.setRequestProperty("Connection","Keep-Alive"); 
@@ -55,13 +57,14 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 				+ connection.getResponseMessage());
 
 		/* HTTPS Response */
-		StringBuilder responseBody = new StringBuilder();
-		DataInputStream input = new DataInputStream(connection.getInputStream());
-		for (int c = input.read(); c != -1; c = input.read()) {
-			responseBody.append((char) c);
-		}
-
-		input.close();
+		StringBuffer responseBody = new StringBuffer();
+		
+		BufferedReader input = new BufferedReader(new InputStreamReader(connection.getInputStream(), "UTF-8")); 
+	    String str = null;
+	    while (null != (str = input.readLine())) {
+	    	responseBody.append(str);
+	    }
+	    input.close();
 
 		return responseBody.toString();
 
