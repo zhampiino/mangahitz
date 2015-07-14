@@ -4,8 +4,8 @@
 
 <c:import url="_header.jsp"></c:import>
 
-    <!-- Main jumbotron -->
-    <div class="jumbotron">
+    <!-- Jumbotron -->
+    <div class="jumbotron index-jumbotron">
         <div class="container">
         	<div class="row">
         		<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
@@ -54,6 +54,7 @@
         </div>
     </div>
     
+    <!--  Introduction -->
     <div class="intro">
     	<div class="container">
     		<h3>READ MANGA ONLINE</h3>
@@ -61,7 +62,7 @@
     	</div>
     </div>
 
-    <!-- Page Content -->
+    <!-- Main Content -->
     <div class="container">
 
         <div class="row">
@@ -71,7 +72,7 @@
             <c:if test="${viewType eq 'list' }">       
             <c:if test="${not empty mangas}">
             
-                <section class="section-new-releases">               
+                <section class="section-new-releases list-view">               
                 	<div class="wrapper">           		
         				<h1>New Releases</h1>        				
     					<ul class="list-group">
@@ -114,6 +115,35 @@
                 	</div>
                 </section>
                 
+            </c:if>
+            </c:if>
+            
+            <c:if test="${viewType eq 'grid' }">       
+            <c:if test="${not empty mangas}">
+            	<section class="section-new-releases grid-view">
+            		<div class="wrapper">           		
+        				<h1>New Releases - Grid</h1>
+        				
+       				    <c:forEach var="manga" items="${mangas }">
+                       	<c:if test="${not empty manga.mangaEps }">
+						<c:forEach var="mangaEp" items="${manga.mangaEps }">  
+        				
+	        				<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
+	        					<div class="grid-item">
+		        					<div class="img-wrap">
+		                            	<a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /></a> 
+		                            </div>                       		
+		                            <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
+		                            <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
+                                </div>
+	        				</div>
+        				
+        				</c:forEach>
+        				</c:if>
+        				</c:forEach>
+        				
+        			</div>           	
+            	</section>
             </c:if>
             </c:if>
 
