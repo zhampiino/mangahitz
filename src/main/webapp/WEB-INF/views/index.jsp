@@ -119,16 +119,13 @@
             </c:if>
             
             <c:if test="${viewType eq 'grid' }">       
-            <c:if test="${not empty mangas}">
+            <c:if test="${not empty mangaEps}">
             	<section class="section-new-releases grid-view">
             		<div class="wrapper">           		
         				<h1>New Releases - Grid</h1>
         				
-       				    <c:forEach var="manga" items="${mangas }">
-                       	<c:if test="${not empty manga.mangaEps }">
-						<c:forEach var="mangaEp" items="${manga.mangaEps }">  
-        				
-	        				<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
+       				    <c:forEach var="mangaEp" items="${mangaEps }">
+       				    	<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
 	        					<div class="grid-item">
 		        					<div class="img-wrap">
 		                            	<a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /></a> 
@@ -137,9 +134,6 @@
 		                            <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
                                 </div>
 	        				</div>
-        				
-        				</c:forEach>
-        				</c:if>
         				</c:forEach>
         				
         			</div>           	
