@@ -136,28 +136,6 @@
 	                        	<span class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></span>
 	                        </div>
                         </div> 
-        				
-<<<<<<< HEAD
-        				<div class="grid-group">
-		        				        			        				
-      				    	<c:forEach var="mangaEp" items="${mangaEps }">
-      				    		
-      				          	<div class="grid-group-item col-xs-6 col-sm-4 col-lg-3 col-md-3">
-	      				          	<div class="border-box">		    	       				    	        					
-			        					<div class="img-wrap">
-			                            	<a href="/Naruto"><img src="http://i.imgur.com/yHS0PQ8.jpg" /></a>
-			                            	<div class="manga-data">                      		
-				                            	<div class="manga-name"><a href="/Naruto" class="ellipsis-wrapper">Naruto Naruto Naruto Naruto Naruto Naruto Naruto</a></div>
-				                            	<div class="manga-chapters"><a href="/Naruto/100" class="ellipsis-wrapper">Chapter 100 : Hooded Enigma Hooded Enigma Hooded Enigma Hooded Enigma Hooded Enigma</a></div>
-		                                	</div>
-			                            </div> 			                            
-                                	</div>                      
-		        				</div> 
-		        				   				
-       						</c:forEach>
-        						        					
-	        			</div>
-=======
        				    <c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
        				    	<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
 	        					<div class="grid-item">
@@ -168,9 +146,7 @@
 		                            <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
                                 </div>
 	        				</div>
-        				</c:forEach>
->>>>>>> origin/master
-        				
+        				</c:forEach>	
         			</div>           	
             	</section>
             </c:if>
