@@ -31,9 +31,13 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="${defaultPath}/js/bootstrap.min.js"></script>
+    
+    <script src="${defaultPath}/js/jquery.ellipsis.js"></script>
 
     <!-- Custom JavaScript -->
     <script src="${defaultPath}/js/custom.js"></script>
+    
+    
 
 </body>
 

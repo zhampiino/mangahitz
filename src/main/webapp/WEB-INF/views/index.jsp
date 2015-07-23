@@ -73,8 +73,15 @@
             <c:if test="${not empty mangas}">
             
                 <section class="section-new-releases list-view">               
-                	<div class="wrapper">           		
-        				<h1>New Releases</h1>        				
+                	<div class="wrapper">
+                		<div class="section-header">          		
+	        				<h1 class="pull-left">New Releases</h1>	        				
+	        				<div class="btn-group btn-layout-view pull-right">
+	                        	<span class="btn btn-default btn-xs list active"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></span>
+	                        	<a href="?viewType=grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+	                        </div>
+                        </div> 
+                                        				
     					<ul class="list-group">
     					
                       		<c:forEach var="manga" items="${mangas }">
@@ -84,7 +91,7 @@
                                     <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /></a>
                                 </div>
                                 <div class="manga-data">
-                                    <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
+                                    <div class="manga-name"><a href="/${manga.name }">${manga.name }</a></div>
                                     
                                     <c:if test="${not empty manga.mangaEps }">
 									<c:forEach var="mangaEp" items="${manga.mangaEps }">
@@ -122,19 +129,33 @@
             <c:if test="${not empty mangaEps}">
             	<section class="section-new-releases grid-view">
             		<div class="wrapper">           		
-        				<h1>New Releases - Grid</h1>
+                		<div class="section-header">          		
+	        				<h1 class="pull-left">New Releases</h1>	        				
+	        				<div class="btn-group btn-layout-view pull-right">
+	                        	<a href="?viewType=list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
+	                        	<span class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></span>
+	                        </div>
+                        </div> 
         				
-       				    <c:forEach var="mangaEp" items="${mangaEps }">
-       				    	<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
-	        					<div class="grid-item">
-		        					<div class="img-wrap">
-		                            	<a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /></a> 
-		                            </div>                       		
-		                            <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
-		                            <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
-                                </div>
-	        				</div>
-        				</c:forEach>
+        				<div class="grid-group">
+		        				        			        				
+      				    	<c:forEach var="mangaEp" items="${mangaEps }">
+      				    		
+      				          	<div class="grid-group-item col-xs-6 col-sm-4 col-lg-3 col-md-3">
+	      				          	<div class="border-box">		    	       				    	        					
+			        					<div class="img-wrap">
+			                            	<a href="/Naruto"><img src="http://i.imgur.com/yHS0PQ8.jpg" /></a>
+			                            	<div class="manga-data">                      		
+				                            	<div class="manga-name"><a href="/Naruto" class="ellipsis-wrapper">Naruto Naruto Naruto Naruto Naruto Naruto Naruto</a></div>
+				                            	<div class="manga-chapters"><a href="/Naruto/100" class="ellipsis-wrapper">Chapter 100 : Hooded Enigma Hooded Enigma Hooded Enigma Hooded Enigma Hooded Enigma</a></div>
+		                                	</div>
+			                            </div> 			                            
+                                	</div>                      
+		        				</div> 
+		        				   				
+       						</c:forEach>
+        						        					
+	        			</div>
         				
         			</div>           	
             	</section>
@@ -179,7 +200,7 @@
 	                        		<div class="img-thumb-wrap">
 	                                    <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /></a> 
 	                                </div>                       		
-	                                <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
+	                                <div class="manga-name"><a href="/${manga.name }">${manga.name }</a></div>
                                     <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
 	                        	</li>
 	                        	 

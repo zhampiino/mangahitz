@@ -52,17 +52,22 @@ a {
   background: #FFFFFF;
   overflow: hidden;
   clear: both; }
-  .wrapper h1 {
-    margin: 0;
-    margin-bottom: 10px;
-    font-weight: bold;
-    font-size: 28px;
-    line-height: 40px;
+  .wrapper .section-header {
     padding-top: 5px;
     padding-bottom: 15px;
-    color: #444;
+    margin-bottom: 10px;
     border-color: transparent;
-    border-bottom: 5px solid #DA4453; }
+    border-bottom: 5px solid #DA4453;
+    overflow: hidden; }
+    .wrapper .section-header h1 {
+      margin: 0;
+      padding: 0;
+      font-weight: bold;
+      font-size: 28px;
+      line-height: 40px;
+      color: #444; }
+    .wrapper .section-header .btn-layout-view {
+      margin-top: 11px; }
   .wrapper aside h3 {
     margin: 0;
     font-weight: bold;
@@ -95,7 +100,8 @@ a {
       line-height: 20px;
       height: 20px; }
       .list-group .list-group-item .manga-name a {
-        color: #DA4453; }
+        color: #DA4453;
+        font-weight: bold; }
       .list-group .list-group-item .manga-name a:hover {
         color: #fda2ab; }
     .list-group .list-group-item .img-thumb-wrap {
@@ -146,6 +152,60 @@ a {
     border-left: 5px solid #DA4453;
     background: #f7f7f7; }
 
+.grid-group {
+  clear: both;
+  overflow: hidden;
+  margin-left: -4px;
+  margin-right: -4px; }
+  .grid-group .grid-group-item {
+    padding: 4px; }
+    .grid-group .grid-group-item .border-box {
+      border: 1px solid #ccc; }
+    .grid-group .grid-group-item .img-wrap {
+      margin: 4px;
+      height: auto;
+      position: relative;
+      overflow: hidden; }
+      .grid-group .grid-group-item .img-wrap a {
+        display: block; }
+        .grid-group .grid-group-item .img-wrap a img {
+          width: 100%; }
+    .grid-group .grid-group-item .manga-data {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      padding: 5px;
+      background: rgba(0, 0, 0, 0.8); }
+      .grid-group .grid-group-item .manga-data a {
+        color: #fff;
+        font-size: 12px; }
+    .grid-group .grid-group-item .manga-name a {
+      font-weight: bold; }
+    .grid-group .grid-group-item .manga-name a:hover span {
+      text-decoration: underline; }
+    .grid-group .grid-group-item .manga-chapters a:hover span {
+      text-decoration: underline; }
+    .grid-group .grid-group-item .img-wrap:hover > a {
+      opacity: 0.7; }
+    .grid-group .grid-group-item .img-wrap:hover .manga-data {
+      background: black;
+      -webkit-transition: all 0.3s;
+      -o-transition: all 0.3s;
+      transition: all 0.3s; }
+  .grid-group .ellip {
+    display: block;
+    height: 100%; }
+  .grid-group .ellip-line {
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+    max-width: 100%; }
+  .grid-group .ellip,
+  .grid-group .ellip-line {
+    position: relative;
+    overflow: hidden; }
+
 aside.popular-manga .list-group-item .img-thumb-wrap {
   margin-top: 0;
   margin-right: 10px; }
@@ -156,7 +216,8 @@ aside.popular-manga .list-group-item .manga-name {
   line-height: 40px;
   height: 40px; }
   aside.popular-manga .list-group-item .manga-name a {
-    font-size: 12px; }
+    font-size: 12px;
+    font-weight: bold; }
 
 aside.popular-manga-chapter .list-group-item .img-thumb-wrap {
   margin-top: 0;
@@ -169,6 +230,8 @@ aside.popular-manga-chapter .list-group-item .manga-chapters {
   aside.popular-manga-chapter .list-group-item .manga-name a,
   aside.popular-manga-chapter .list-group-item .manga-chapters a {
     font-size: 12px; }
+aside.popular-manga-chapter .list-group-item .manga-name a {
+  font-weight: bold; }
 
 .btn-more {
   background: #333;
@@ -199,12 +262,21 @@ aside.popular-manga-chapter .list-group-item .manga-chapters {
     width: 98%; } }
 @media (min-width: 768px) {
   .list-group .manga-chapters .title {
-    width: 400px; } }
+    width: 400px; }
+
+  .grid-group .grid-group-item .img-wrap {
+    height: 310px; } }
 @media (min-width: 992px) {
   .list-group .manga-chapters .title {
-    width: 300px; } }
+    width: 300px; }
+
+  .grid-group .grid-group-item .img-wrap {
+    height: 190px; } }
 @media (min-width: 1200px) {
   .list-group .manga-chapters .title {
-    width: 400px; } }
+    width: 400px; }
+
+  .grid-group .grid-group-item .img-wrap {
+    height: 240px; } }
 
 /*# sourceMappingURL=custom.css.map */
