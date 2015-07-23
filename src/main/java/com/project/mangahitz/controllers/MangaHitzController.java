@@ -1,20 +1,29 @@
 package com.project.mangahitz.controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.client.RestTemplate;
 
 import com.project.mangahitz.constants.MGHConstants;
-import com.project.mangahitz.domains.response.MangaResponse;
-import com.project.mangahitz.service.MangaHitzRESTful;
+import com.project.mangahitz.domains.response.MangaEpListResponse;
+import com.project.mangahitz.domains.response.MangaListResponse;
 import com.project.mangahitz.views.IndexView;
 
 /**
@@ -27,11 +36,25 @@ public class MangaHitzController {
 	private static final Logger logger = LoggerFactory.getLogger(MangaHitzController.class);
 	
 	@Autowired
-	private MangaHitzRESTful mangaHitzRESTful;
+	private RestTemplate restTemplate;
 	
-	public void setMangaHitzRESTful(MangaHitzRESTful mangaHitzRESTful) {
-		this.mangaHitzRESTful = mangaHitzRESTful;
+	public void setRestTemplate(RestTemplate restTemplate) {
+		this.restTemplate = restTemplate;
 	}
+	
+	private HttpEntity<?> requestEntity(){
+			
+			HttpHeaders requestHeaders = new HttpHeaders();
+			List<MediaType> acceptableMediaTypes = new ArrayList<MediaType>();
+			acceptableMediaTypes.add(MediaType.APPLICATION_JSON);
+			acceptableMediaTypes.add(MediaType.APPLICATION_FORM_URLENCODED);
+			requestHeaders.setAccept(acceptableMediaTypes);
+			requestHeaders.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+			HttpEntity<?> requestEntity = new HttpEntity<Object>(requestHeaders);
+			
+			return requestEntity;
+			
+		}
 
 	/**
 	 * Simply selects the home view to render by returning its name.
@@ -46,20 +69,41 @@ public class MangaHitzController {
 		else
 			returnView.setViewType(viewType);
 		
-		MangaResponse lastest = mangaHitzRESTful.getLastReleaseManga(returnView.getViewType(), returnView.getPageNumber(), MGHConstants.RELEASE_LASTEST);
 		
-		returnView.setStatus(lastest.isStatus());
-		returnView.setMsg(lastest.getMsg());
-		returnView.setTotalPages(lastest.getTotalPages());
-		
-		if(returnView.getViewType().equals(MGHConstants.VIEW_TYPE_LIST)){
-			returnView.setMangas(lastest.getMangas());
+		if(returnView.getViewType().equals("list")){
+//			/find/manga/lastest/{view}/{page}/{md5key}
+			ResponseEntity<?>  responseEntity = restTemplate.exchange(MGHConstants.FIND_LASTEST,HttpMethod.GET,this.requestEntity(),MangaListResponse.class,returnView.getViewType(),returnView.getPageNumber(),MGHConstants.MD5_KEY_GENERATOR);
+			
+			if(responseEntity.getStatusCode() == HttpStatus.OK)
+			{
+				MangaListResponse mg = (MangaListResponse)responseEntity.getBody();
+				
+				returnView.setTotalPages(mg.getTotalPages());
+				
+				returnView.setLastestManga(mg);
+				
+			}else{
+				System.out.println(responseEntity.getBody());
+			}
+			
 		}else{
-			returnView.setMangaEps(lastest.getMangaEps());
+			
+			ResponseEntity<?>  responseEntity = restTemplate.exchange(MGHConstants.FIND_LASTEST,HttpMethod.GET,this.requestEntity(),MangaEpListResponse.class,returnView.getViewType(),returnView.getPageNumber(),MGHConstants.MD5_KEY_GENERATOR);
+			
+			if(responseEntity.getStatusCode() == HttpStatus.OK)
+			{
+				MangaEpListResponse mg = (MangaEpListResponse)responseEntity.getBody();
+				
+				returnView.setTotalPages(mg.getTotalPages());
+				
+				returnView.setLastestMangaEp(mg);
+				
+			}else{
+				System.out.println(responseEntity.getBody());
+			}
+			
 		}
-		MangaResponse popular = mangaHitzRESTful.getPopularManga();
-		returnView.setTop5Mangas(popular.getTop5Mangas());
-		returnView.setPopularMangas(popular.getPopularMangas());
+		
 		
 		return returnView;
 	}
@@ -84,7 +128,7 @@ public class MangaHitzController {
 		
 		model.addAttribute("mangaName", mangaName);
 		
-		MangaResponse mgResponse = mangaHitzRESTful.getMangaByName(mangaName,1);
+		//MangaResponse mgResponse = mangaHitzRESTful.getMangaByName(mangaName,1);
 		
 		return "manga";
 	}
@@ -97,7 +141,7 @@ public class MangaHitzController {
 		model.addAttribute("mangaName", mangaName);
 		model.addAttribute("mangaEpNo", mangaEpNo);
 		
-		MangaResponse mgResponse = mangaHitzRESTful.getMangaEp(mangaName, mangaEpNo);
+		//MangaResponse mgResponse = mangaHitzRESTful.getMangaEp(mangaName, mangaEpNo);
 		
 		return "manga_ep";
 	}

@@ -70,18 +70,18 @@
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content">
             
             <c:if test="${viewType eq 'list' }">       
-            <c:if test="${not empty mangas}">
+            <c:if test="${not empty lastestManga}">
             
                 <section class="section-new-releases list-view">               
                 	<div class="wrapper">           		
         				<h1>New Releases</h1>        				
     					<ul class="list-group">
     					
-                      		<c:forEach var="manga" items="${mangas }">
+                      		<c:forEach var="manga" items="${lastestManga.mangaList }">
                       		
                        		<li class="list-group-item">
                                 <div class="img-thumb-wrap">
-                                    <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /></a>
+                                    <a href="/${manga.name }"><img src="${manga.picUrl }" /></a>
                                 </div>
                                 <div class="manga-data">
                                     <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
@@ -119,16 +119,16 @@
             </c:if>
             
             <c:if test="${viewType eq 'grid' }">       
-            <c:if test="${not empty mangaEps}">
+            <c:if test="${not empty lastestMangaEp}">
             	<section class="section-new-releases grid-view">
             		<div class="wrapper">           		
         				<h1>New Releases - Grid</h1>
         				
-       				    <c:forEach var="mangaEp" items="${mangaEps }">
+       				    <c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
        				    	<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
 	        					<div class="grid-item">
 		        					<div class="img-wrap">
-		                            	<a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/onepiece_62x0.png" /></a> 
+		                            	<a href="/${mangaEp.manga.name }"><img src="${mangaEp.manga.picUrl }" /></a> 
 		                            </div>                       		
 		                            <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
 		                            <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>

@@ -2,20 +2,39 @@ package com.project.mangahitz.domains;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 
+
+
+//@JsonInclude(Include.NON_NULL)
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class MangaEp {
 
+	@JsonProperty("manga_ep_id")
 	private Integer mangaEpId;
-	private Integer mangaId;
-	private Integer epNo;
+	
+	@JsonProperty("ep_no")
+	private String epNo;
+	
+	@JsonProperty("ep_name")
 	private String epName;
+	
+	@JsonProperty("release_date")
 	private String releaseDate;
+	
+	@JsonProperty("rate")
 	private Integer rate;
+	
+	@JsonProperty("create_date")
 	private String createDate;
+	
+	@JsonProperty("manga")
 	private Manga manga;
+	
+	@JsonProperty("manga_ep_pics")
 	private List<MangaEpPic> mangaEpPics;
-	
-	
+
 	public Integer getMangaEpId() {
 		return mangaEpId;
 	}
@@ -24,19 +43,11 @@ public class MangaEp {
 		this.mangaEpId = mangaEpId;
 	}
 
-	public Integer getMangaId() {
-		return mangaId;
-	}
-
-	public void setMangaId(Integer mangaId) {
-		this.mangaId = mangaId;
-	}
-	
-	public Integer getEpNo() {
+	public String getEpNo() {
 		return epNo;
 	}
 
-	public void setEpNo(Integer epNo) {
+	public void setEpNo(String epNo) {
 		this.epNo = epNo;
 	}
 

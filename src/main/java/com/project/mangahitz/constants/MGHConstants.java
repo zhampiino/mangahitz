@@ -2,7 +2,7 @@ package com.project.mangahitz.constants;
 
 public class MGHConstants {
 
-	public final static String MANGAHITZ_RESTFUL_URL = "http://localhost:8092/";
+	public final static String MANGAHITZ_RESTFUL_URL = "http://localhost:8092";
 	public final static String GET_LATEST_MANGA = "getLastestManga";
 	public final static String GET_POPULAR_MANGA = "getPopularManga";
 	public final static String GET_MANGA_BY_NAME = "getMangaByName";
@@ -14,7 +14,10 @@ public class MGHConstants {
 	
 	public final static String RELEASE_LASTEST = "lastest";
 	public final static String RELEASE_LAST = "last";
-	public final static String RELEASE_OLD = "old";
+	public final static String RELEASE_OLD = String.format("%s", MANGAHITZ_RESTFUL_URL);
+	
+	public final static String FIND_LASTEST = String.format("%s/find/manga/lastest/{view}/{page}/{md5key}", MANGAHITZ_RESTFUL_URL);
+	
 }
 
 
