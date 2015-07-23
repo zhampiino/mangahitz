@@ -70,7 +70,7 @@
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content">
             
             <c:if test="${viewType eq 'list' }">       
-            <c:if test="${not empty lastestManga}">
+            <c:if test="${not empty mangas}">
             
                 <section class="section-new-releases list-view">               
                 	<div class="wrapper">
@@ -84,11 +84,11 @@
                                         				
     					<ul class="list-group">
     					
-                      		<c:forEach var="manga" items="${lastestManga.mangaList }">
+                      		<c:forEach var="manga" items="${mangas }">
                       		
                        		<li class="list-group-item">
                                 <div class="img-thumb-wrap">
-                                    <a href="/${manga.name }"><img src="${manga.picUrl }" /></a>
+                                    <a href="/${manga.name }"><img src="http://www.niceoppai.net/wp-content/manga/cover/tbn/koitouso_1_36x0.jpg" /></a>
                                 </div>
                                 <div class="manga-data">
                                     <div class="manga-name"><a href="/${manga.name }">${manga.name }</a></div>
@@ -126,7 +126,7 @@
             </c:if>
             
             <c:if test="${viewType eq 'grid' }">       
-            <c:if test="${not empty lastestMangaEp}">
+            <c:if test="${not empty mangaEps}">
             	<section class="section-new-releases grid-view">
             		<div class="wrapper">           		
                 		<div class="section-header">          		
@@ -136,17 +136,27 @@
 	                        	<span class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></span>
 	                        </div>
                         </div> 
-       				    <c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
-       				    	<div class="col-xs-6 col-sm-4 col-lg-3 col-md-3">
-	        					<div class="grid-item">
-		        					<div class="img-wrap">
-		                            	<a href="/${mangaEp.manga.name }"><img src="${mangaEp.manga.picUrl }" /></a> 
-		                            </div>                       		
-		                            <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>
-		                            <div class="manga-chapters"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
-                                </div>
-	        				</div>
-        				</c:forEach>	
+        				
+        				<div class="grid-group">
+		        				        			        				
+      				    	<c:forEach var="mangaEp" items="${mangaEps }">
+      				    		
+      				          	<div class="grid-group-item col-xs-6 col-sm-4 col-lg-3 col-md-3">
+	      				          	<div class="border-box">		    	       				    	        					
+			        					<div class="img-wrap">
+			                            	<a href="/Naruto"><img src="http://i.imgur.com/yHS0PQ8.jpg" /></a>
+			                            	<div class="manga-data">                      		
+				                            	<div class="manga-name"><a href="/Naruto" class="ellipsis-wrapper">Naruto Naruto Naruto Naruto Naruto Naruto Naruto</a></div>
+				                            	<div class="manga-chapters"><a href="/Naruto/100" class="ellipsis-wrapper">Chapter 100 : Hooded Enigma Hooded Enigma Hooded Enigma Hooded Enigma Hooded Enigma</a></div>
+		                                	</div>
+			                            </div> 			                            
+                                	</div>                      
+		        				</div> 
+		        				   				
+       						</c:forEach>
+        						        					
+	        			</div>
+        				
         			</div>           	
             	</section>
             </c:if>
