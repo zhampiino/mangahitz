@@ -8,6 +8,7 @@ public class BaseView extends ModelAndView {
 	private String msg;
 	private Integer totalPages;
 	private Integer pageNumber;
+	private Integer totalElements;
 	
 	public BaseView(){
 		this.setStatus(false);
@@ -53,6 +54,14 @@ public class BaseView extends ModelAndView {
 		this.totalPages = totalPages;
 		
 		this.addObject("totalPages", totalPages);
+	}
+
+	public Integer getTotalElements() {
+		return totalElements;
+	}
+
+	public void setTotalElements(Integer totalElements) {
+		this.totalElements = totalElements;
 	}
 	
 	

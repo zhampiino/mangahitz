@@ -2,21 +2,59 @@ package com.project.mangahitz.domains;
 
 import java.util.List;
 
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
+
+
+@JsonIgnoreProperties(ignoreUnknown=true)
 public class Manga {
 
+	@JsonProperty("manga_id")
 	private Integer mangaId;
+	
+	@JsonProperty("name")
 	private String name;
+	
+	@JsonProperty("description")
 	private String description;
+	
+	@JsonProperty("alternate_name")
 	private String alternateName;
+	
+	@JsonProperty("year_release")
 	private String yearRelease;
+	
+	@JsonProperty("manga_status")
 	private String mangaStatus;
+	
+	@JsonProperty("author")
 	private String author;
+	
+	@JsonProperty("artist")
 	private String artist;
+	
+	@JsonProperty("publishing")
 	private String publishing;
+	
+	@JsonProperty("pic_url")
 	private String picUrl;
+	
+	@JsonProperty("rate")
 	private Integer rate;
+	
+	@JsonProperty("create_date")
 	private String createDate;
-	private String status;
+	
+	@JsonProperty("thumbnail_url")
+	private String thumpnailUrl;
+	
+	@JsonProperty("content_url")
+	private String contentUrl;
+	
+	@JsonProperty("lastest_ep")
+	private Integer lastestEp;
+	
+	@JsonProperty("manga_eps")
 	private List<MangaEp> mangaEps;
 	
 	public List<MangaEp> getMangaEps() {
@@ -122,12 +160,30 @@ public class Manga {
 	public void setYearRelease(String yearRelease) {
 		this.yearRelease = yearRelease;
 	}
-	public String getStatus() {
-		return status;
+
+	public String getThumpnailUrl() {
+		return thumpnailUrl;
 	}
 
-	public void setStatus(String status) {
-		this.status = status;
+	public void setThumpnailUrl(String thumpnailUrl) {
+		this.thumpnailUrl = thumpnailUrl;
 	}
+
+	public String getContentUrl() {
+		return contentUrl;
+	}
+
+	public void setContentUrl(String contentUrl) {
+		this.contentUrl = contentUrl;
+	}
+
+	public Integer getLastestEp() {
+		return lastestEp;
+	}
+
+	public void setLastestEp(Integer lastestEp) {
+		this.lastestEp = lastestEp;
+	}
+	
 	
 }
