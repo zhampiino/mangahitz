@@ -39,8 +39,8 @@ public class MangaHitzRESTfulImpl implements MangaHitzRESTful {
 		connection.setRequestMethod(requestMethod);
 		//connection.setRequestProperty("Host","webagentdev.arx.com"); 
 		connection.setRequestProperty("Content-length", String.valueOf(contentLenght)); 
-		connection.setRequestProperty("Content-Type","application/json;charset=utf-8"); 
-		connection.setRequestProperty("Accept", "application/json;charset=utf-8");
+		connection.setRequestProperty("Content-Type","application/json"); 
+		connection.setRequestProperty("Accept", "application/json");
 //		con.setRequestProperty("Content-Type","application/x-www-form-urlencoded"); 
 		//connection.setRequestProperty("Expect","100-continue"); 
         //connection.setRequestProperty("Connection","Keep-Alive"); 
