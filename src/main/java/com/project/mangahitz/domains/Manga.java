@@ -5,7 +5,6 @@ import java.util.List;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class Manga {
 
@@ -36,8 +35,8 @@ public class Manga {
 	@JsonProperty("publishing")
 	private String publishing;
 	
-	@JsonProperty("pic_url")
-	private String picUrl;
+	@JsonProperty("pic")
+	private Picture pic;
 	
 	@JsonProperty("rate")
 	private Integer rate;
@@ -97,10 +96,6 @@ public class Manga {
 		return name;
 	}
 
-	public String getPicUrl() {
-		return picUrl;
-	}
-
 	public String getPublishing() {
 		return publishing;
 	}
@@ -145,10 +140,6 @@ public class Manga {
 		this.name = name;
 	}
 
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
-	}
-
 	public void setPublishing(String publishing) {
 		this.publishing = publishing;
 	}
@@ -183,6 +174,14 @@ public class Manga {
 
 	public void setLastestEp(Integer lastestEp) {
 		this.lastestEp = lastestEp;
+	}
+
+	public Picture getPic() {
+		return pic;
+	}
+
+	public void setPic(Picture pic) {
+		this.pic = pic;
 	}
 	
 	

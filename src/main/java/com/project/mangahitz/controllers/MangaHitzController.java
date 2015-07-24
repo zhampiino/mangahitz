@@ -71,7 +71,7 @@ public class MangaHitzController {
 		
 		
 		if(returnView.getViewType().equals("list")){
-//			/find/manga/lastest/{view}/{page}/{md5key}
+			
 			ResponseEntity<?>  responseEntity = restTemplate.exchange(MGHConstants.FIND_LASTEST,HttpMethod.GET,this.requestEntity(),MangaListResponse.class,returnView.getViewType(),returnView.getPageNumber(),MGHConstants.MD5_KEY_GENERATOR);
 			
 			if(responseEntity.getStatusCode() == HttpStatus.OK)
@@ -102,6 +102,18 @@ public class MangaHitzController {
 				System.out.println(responseEntity.getBody());
 			}
 			
+		}
+		
+		ResponseEntity<?>  popularMangaEntity = restTemplate.exchange(MGHConstants.FIND_POPULAR,HttpMethod.GET,this.requestEntity(),MangaListResponse.class,MGHConstants.MD5_KEY_GENERATOR);
+		
+		if(popularMangaEntity.getStatusCode() == HttpStatus.OK){
+			returnView.setPopularManga((MangaListResponse)popularMangaEntity.getBody());
+		}
+		
+		ResponseEntity<?>  popularMangaEpEntity = restTemplate.exchange(MGHConstants.FIND_EP_POPULAR,HttpMethod.GET,this.requestEntity(),MangaEpListResponse.class,MGHConstants.MD5_KEY_GENERATOR);
+		
+		if(popularMangaEpEntity.getStatusCode() == HttpStatus.OK){
+			returnView.setPopularMangaEp((MangaEpListResponse)popularMangaEpEntity.getBody());
 		}
 		
 		

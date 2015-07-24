@@ -3,9 +3,6 @@ package com.project.mangahitz.domains;
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-
-
-//@JsonInclude(Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class MangaEpPic {
 
@@ -15,8 +12,8 @@ public class MangaEpPic {
 	@JsonProperty("manga_ep_id")
 	private Integer mangaEpId;
 	
-	@JsonProperty("pic_url")
-	private String picUrl;
+	@JsonProperty("pic")
+	private Picture pic;
 
 	public Integer getEpPicId() {
 		return epPicId;
@@ -34,12 +31,12 @@ public class MangaEpPic {
 		this.mangaEpId = mangaEpId;
 	}
 
-	public String getPicUrl() {
-		return picUrl;
+	public Picture getPic() {
+		return pic;
 	}
 
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
+	public void setPic(Picture pic) {
+		this.pic = pic;
 	}
 	
 	
