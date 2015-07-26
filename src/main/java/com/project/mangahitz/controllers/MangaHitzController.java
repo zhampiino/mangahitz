@@ -30,7 +30,6 @@ import com.project.mangahitz.views.IndexView;
  * Handles requests for the application home page.
  */
 @Controller
-//@SessionAttributes(value={"viewType","mangaName"})
 public class MangaHitzController {
 	
 	private static final Logger logger = LoggerFactory.getLogger(MangaHitzController.class);
@@ -121,8 +120,8 @@ public class MangaHitzController {
 	}
 	
 	@RequestMapping(value = "/latest-chapters/{pageNumber}", method = RequestMethod.GET)
-	public IndexView indexViewTypeWithPage(Locale locale, Model model,
-			@RequestParam(value="viewType", required = true) String viewType,
+	public IndexView indexWithPage(Locale locale, Model model,
+			@RequestParam(value="viewType", required = false) String viewType,
 			@PathVariable("pageNumber") Integer pageNumber) {
 		
 		IndexView returnView = new IndexView();
@@ -135,26 +134,66 @@ public class MangaHitzController {
 		return returnView;
 	}
 	
-	@RequestMapping(value = "/{mangaName}", method = RequestMethod.GET)
-	public String manga(Locale locale, Model model,@PathVariable("mangaName") String mangaName) {
-		
-		model.addAttribute("mangaName", mangaName);
-		
-		//MangaResponse mgResponse = mangaHitzRESTful.getMangaByName(mangaName,1);
+	@RequestMapping(value = "/viewAll", method = RequestMethod.GET)
+	public String viewAll(Locale locale, Model model,
+			@RequestParam(value="viewType", required = false) String viewType) {
 		
 		return "manga";
 	}
 	
-	@RequestMapping(value = "/{mangaName}/{mangaEpNo}", method = RequestMethod.GET)
+	
+	@RequestMapping(value = "/{requestName}", method = RequestMethod.GET)
+	public String manga(Locale locale, Model model,@PathVariable("requestName") String requestName) {
+		
+		model.addAttribute("request manga name", requestName);
+		
+		return "manga";
+	}
+	
+	@RequestMapping(value = "/{requestName}/chapters/{pageNumber}", method = RequestMethod.GET)
+	public String mangaWithPage(Locale locale, Model model,
+			@RequestParam(value="requestName") String requestName,
+			@PathVariable("pageNumber") Integer pageNumber) {
+		
+		return "manga";
+	}
+
+	@RequestMapping(value = "/{requestName}/{epNo}", method = RequestMethod.GET)
 	public String mangaEp(Locale locale, Model model,
-			@PathVariable("mangaName") String mangaName,
-			@PathVariable("mangaEpNo") Integer mangaEpNo) {
+			@PathVariable("requestName") String requestName,
+			@PathVariable("epNo") Integer epNo) {
 		
-		model.addAttribute("mangaName", mangaName);
-		model.addAttribute("mangaEpNo", mangaEpNo);
-		
-		//MangaResponse mgResponse = mangaHitzRESTful.getMangaEp(mangaName, mangaEpNo);
-		
+		model.addAttribute("requestName", requestName);
+		model.addAttribute("epNo", epNo);
+
 		return "manga_ep";
+	}
+	
+	@RequestMapping(value = "/{requestName}/{epNo}/{page}", method = RequestMethod.GET)
+	public String mangaEpWithPage(Locale locale, Model model,
+			@PathVariable("requestName") String requestName,
+			@PathVariable("epNo") Integer epNo,
+			@PathVariable("page") Integer page) {
+		
+		
+		model.addAttribute("requestName", requestName);
+		model.addAttribute("epNo", epNo);
+
+		return "manga_ep";
+	}
+	
+	@RequestMapping(value = "/search/alphabet/{keyword}", method = RequestMethod.GET)
+	public String searchByAlphabet(Locale locale, Model model,@PathVariable("keyword") String keyword) {
+		return "manga";
+	}
+	
+	@RequestMapping(value = "/search/name/{keyword}", method = RequestMethod.GET)
+	public String searchByKeyword(Locale locale, Model model,@PathVariable("keyword") String keyword) {
+		return "manga";
+	}
+	
+	@RequestMapping(value = "/search/category/{keyword}", method = RequestMethod.GET)
+	public String searchByCategory(Locale locale, Model model,@PathVariable("keyword") String keyword) {
+		return "manga";
 	}
 }

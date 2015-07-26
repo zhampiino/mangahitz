@@ -13,7 +13,7 @@
         				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 		        			<div class="thumbnail">
 		        				<div class="img-wrap">
-		        					<a href="naruto"><img src="${manga.picUrl }" /></a>
+		        					<a href="/${manga.requestName }"><img src="${manga.picUrl }" /></a>
 		        				</div>
 		        			</div>
 		        		</div>
@@ -60,13 +60,13 @@
 	                                    <a href="/${manga.name }"><img src="${manga.picUrl }" /></a>
 	                                </div>
 	                                <div class="manga-data">
-	                                    <div class="manga-name"><a href="/${manga.name }">${manga.name }</a></div>
+	                                    <div class="manga-name"><a href="/${manga.requestName }">${manga.name }</a></div>
 	                                    
 	                                    <c:if test="${not empty manga.mangaEps }">
 										<c:forEach var="mangaEp" items="${manga.mangaEps }">
 		                                    
 		                                    <div class="manga-chapters"> 
-		                                        <div class="title pull-left"><a href="/${manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
+		                                        <div class="title pull-left"><a href="/${manga.requestName }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
 		                                        <div class="opt pull-right">
 		                                            <span class="date hidden-xs">${mangaEp.releaseDate }</span>
 		                                            <span class="ratings hidden-sm hidden-xs">
@@ -113,10 +113,10 @@
 	      				          	<div class="grid-group-item col-xs-6 col-sm-4 col-lg-3 col-md-3">
 		      				          	<div class="border-box">		    	       				    	        					
 				        					<div class="img-wrap">
-				                            	<a href="/Naruto"><img src="${mangaEp.manga.picUrl }" /></a>
+				                            	<a href="/${mangaEp.manga.requestName} }"><img src="${mangaEp.manga.picUrl }" /></a>
 				                            	<div class="manga-data">                      		
-					                            	<div class="manga-name"><a href="/Naruto" class="ellipsis-wrapper">${mangaEp.manga.name }</a></div>
-					                            	<div class="manga-chapters"><a href="/Naruto/100" class="ellipsis-wrapper">Chapter ${mangaEp.epNo } : ${mangaEp.epName }</a></div>
+					                            	<div class="manga-name"><a href="/${mangaEp.manga.requestName} }" class="ellipsis-wrapper">${mangaEp.manga.name }</a></div>
+					                            	<div class="manga-chapters"><a href="/${mangaEp.manga.requestName} }/${mangaEp.epNo}" class="ellipsis-wrapper">Chapter ${mangaEp.epNo } : ${mangaEp.epName }</a></div>
 			                                	</div>
 				                            </div> 			                            
 	                                	</div>                      
@@ -145,9 +145,9 @@
 	                        	
 		                        	<li class="list-group-item">
 		                        		<div class="img-thumb-wrap">
-		                                    <a href="/${manga.name }"><img src="${manga.picUrl }" /></a> 
+		                                    <a href="/${manga.requestName }"><img src="${manga.picUrl }" /></a> 
 		                                </div>
-		                                <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>   	                                
+		                                <div class="manga-name"><a href="/${manga.requestName }"><b>${manga.name }</b></a></div>   	                                
 		                        	</li>
 	                        	</c:forEach>
 	                        </ul>
@@ -163,10 +163,10 @@
 	                        	<c:forEach var="mangaEp" items="${popularMangaEp.mangaEpList }">
 		                        	<li class="list-group-item"> 
 		                        		<div class="img-thumb-wrap">
-		                                    <a href="/${mangaEp.manga.name }"><img src="${mangaEp.manga.picUrl }" /></a> 
+		                                    <a href="/${mangaEp.manga.requestName }"><img src="${mangaEp.manga.picUrl }" /></a> 
 		                                </div>                       		
-		                                <div class="manga-name"><a href="/${mangaEp.manga.name }">${mangaEp.manga.name }</a></div>
-	                                    <div class="manga-chapters"><a href="/${mangaEp.manga.name }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
+		                                <div class="manga-name"><a href="/${mangaEp.manga.requestName }">${mangaEp.manga.name }</a></div>
+	                                    <div class="manga-chapters"><a href="/${mangaEp.manga.requestName }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
 		                        	</li>
 	                        	</c:forEach>
 	                        

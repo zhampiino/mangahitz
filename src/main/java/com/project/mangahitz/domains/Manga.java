@@ -50,8 +50,8 @@ public class Manga {
 	@JsonProperty("content_url")
 	private String contentUrl;
 	
-	@JsonProperty("lastest_ep")
-	private Integer lastestEp;
+	@JsonProperty("request_name")
+	private String requestName;
 	
 	@JsonProperty("manga_eps")
 	private List<MangaEp> mangaEps;
@@ -167,21 +167,20 @@ public class Manga {
 	public void setContentUrl(String contentUrl) {
 		this.contentUrl = contentUrl;
 	}
-
-	public Integer getLastestEp() {
-		return lastestEp;
-	}
-
-	public void setLastestEp(Integer lastestEp) {
-		this.lastestEp = lastestEp;
-	}
-
 	public String getPicUrl() {
 		return picUrl;
 	}
 
 	public void setPicUrl(String picUrl) {
 		this.picUrl = picUrl;
+	}
+
+	public String getRequestName() {
+		return requestName;
+	}
+
+	public void setRequestName(String requestName) {
+		this.requestName = requestName;
 	}
 	
 	
