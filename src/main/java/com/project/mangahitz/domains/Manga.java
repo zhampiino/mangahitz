@@ -35,8 +35,8 @@ public class Manga {
 	@JsonProperty("publishing")
 	private String publishing;
 	
-	@JsonProperty("pic")
-	private Picture pic;
+	@JsonProperty("picUrl")
+	private String picUrl;
 	
 	@JsonProperty("rate")
 	private Integer rate;
@@ -176,12 +176,12 @@ public class Manga {
 		this.lastestEp = lastestEp;
 	}
 
-	public Picture getPic() {
-		return pic;
+	public String getPicUrl() {
+		return picUrl;
 	}
 
-	public void setPic(Picture pic) {
-		this.pic = pic;
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
 	}
 	
 	

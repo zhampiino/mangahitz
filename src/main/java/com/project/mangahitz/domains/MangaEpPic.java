@@ -12,8 +12,8 @@ public class MangaEpPic {
 	@JsonProperty("manga_ep_id")
 	private Integer mangaEpId;
 	
-	@JsonProperty("pic")
-	private Picture pic;
+	@JsonProperty("picUrl")
+	private String picUrl;
 
 	public Integer getEpPicId() {
 		return epPicId;
@@ -31,12 +31,12 @@ public class MangaEpPic {
 		this.mangaEpId = mangaEpId;
 	}
 
-	public Picture getPic() {
-		return pic;
+	public String getPicUrl() {
+		return picUrl;
 	}
 
-	public void setPic(Picture pic) {
-		this.pic = pic;
+	public void setPicUrl(String picUrl) {
+		this.picUrl = picUrl;
 	}
 	
 	
