@@ -169,18 +169,18 @@ public class MangaHitzController {
 		return "manga_ep";
 	}
 	
-	@RequestMapping(value = "/{requestName}/{epNo}/{page}", method = RequestMethod.GET)
-	public String mangaEpWithPage(Locale locale, Model model,
-			@PathVariable("requestName") String requestName,
-			@PathVariable("epNo") Integer epNo,
-			@PathVariable("page") Integer page) {
-		
-		
-		model.addAttribute("requestName", requestName);
-		model.addAttribute("epNo", epNo);
-
-		return "manga_ep";
-	}
+//	@RequestMapping(value = "/{requestName}/{epNo}/{page}", method = RequestMethod.GET)
+//	public String mangaEpWithPage(Locale locale, Model model,
+//			@PathVariable("requestName") String requestName,
+//			@PathVariable("epNo") Integer epNo,
+//			@PathVariable("page") Integer page) {
+//		
+//		
+//		model.addAttribute("requestName", requestName);
+//		model.addAttribute("epNo", epNo);
+//
+//		return "manga_ep";
+//	}
 	
 	@RequestMapping(value = "/search/alphabet/{keyword}", method = RequestMethod.GET)
 	public String searchByAlphabet(Locale locale, Model model,@PathVariable("keyword") String keyword) {

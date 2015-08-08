@@ -23,11 +23,6 @@
 	
 	<context:component-scan base-package="com.project.mangahitz" />
 	
-	<!-- Http Json MessageConverter -->  
-<!--  <bean id="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">  
-        <property name="supportedMediaTypes" value="application/json">  
- </property></bean>   -->
-   
 	<beans:bean name="jsonConverter" class="org.springframework.http.converter.json.MappingJacksonHttpMessageConverter">
 		<beans:property name="supportedMediaTypes">
 			<beans:array>
