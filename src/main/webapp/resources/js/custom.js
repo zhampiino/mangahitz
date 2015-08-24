@@ -24,7 +24,7 @@ $(window).resize(function() {
     		
     }, 300);
     
-    console.log(resizeId);
+    //console.log(resizeId);
 	
 });
 
@@ -36,8 +36,7 @@ var setImageRatio = function(img_selector){
 		var height = width * ratio;  // Reset height to match scaled image
 
 		$(this).css("height", height); 
-		console.log('height = '+height+' Ratio = '+ratio);
-		
+		//console.log('height = '+height+' Ratio = '+ratio);	
 	});
 	
 }

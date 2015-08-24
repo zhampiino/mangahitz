@@ -6,14 +6,19 @@
 
     <!-- Jumbotron -->
     <div class="jumbotron index-jumbotron">
-        <div class="container">
+        <div class="container hidden-xs hidden-sm">
         	<div class="row">
         		<c:if test="${not empty popularManga }">
         			<c:forEach var="manga" items="${popularManga.mangaList }" begin="0" end="5" step="1">
         				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 		        			<div class="thumbnail">
-		        				<div class="img-wrap">
-		        					<a href="/${manga.requestName }"><img src="${manga.picUrl }" /></a>
+		        				<div class="img-wrap">		        					
+		        					<a href="/${manga.requestName }">	        						
+		        						<img src="${manga.picUrl }" />
+		        						<div class="push">		        						
+		        							<div class="manga-name">${manga.requestName }</div>
+		        						</div>
+		        					</a>
 		        				</div>
 		        			</div>
 		        		</div>
@@ -95,40 +100,43 @@
             </c:if>
             
             <c:if test="${viewType eq 'grid' }">       
-	            <c:if test="${not empty lastestMangaEp}">
-	            	<section class="section-new-releases grid-view">
-	            		<div class="wrapper">           		
-	                		<div class="section-header">          		
-		        				<h1 class="pull-left">New Releases</h1>	        				
-		        				<div class="btn-group btn-layout-view pull-right">
-		                        	<a href="?viewType=list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
-		                        	<span class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></span>
-		                        </div>
-	                        </div> 
-	        				
-	        				<div class="grid-group">
-			        				        			        				
-	      				    	<c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
-	      				    		
-	      				          	<div class="grid-group-item col-xs-6 col-sm-4 col-lg-3 col-md-3">
-		      				          	<div class="border-box">		    	       				    	        					
-				        					<div class="img-wrap">
-				                            	<a href="/${mangaEp.manga.requestName} }"><img src="${mangaEp.manga.picUrl }" /></a>
-				                            	<div class="manga-data">                      		
-					                            	<div class="manga-name"><a href="/${mangaEp.manga.requestName} }" class="ellipsis-wrapper">${mangaEp.manga.name }</a></div>
-					                            	<div class="manga-chapters"><a href="/${mangaEp.manga.requestName} }/${mangaEp.epNo}" class="ellipsis-wrapper">Chapter ${mangaEp.epNo } : ${mangaEp.epName }</a></div>
-			                                	</div>
-				                            </div> 			                            
-	                                	</div>                      
-			        				</div> 
-			        				   				
-	       						</c:forEach>
-	        						        					
-		        			</div>
-	        				
-	        			</div>           	
-	            	</section>
-	            </c:if>
+            <c:if test="${not empty lastestMangaEp}">
+            	<section class="section-new-releases grid-view">
+            		<div class="wrapper">           		
+                		<div class="section-header">          		
+	        				<h1 class="pull-left">New Releases</h1>	        				
+	        				<div class="btn-group btn-layout-view pull-right">
+	                        	<a href="?viewType=list" class="btn btn-default btn-xs list"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></a>
+	                        	<span class="btn btn-default btn-xs grid active"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></span>
+	                        </div>
+                        </div> 
+        				
+        				<div class="grid-group">
+		        				        			        				
+      				    	<c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
+      				    		
+      				          	<div class="grid-group-item col-xs-6 col-sm-3 col-md-4 col-lg-3">
+	      				          	<div class="border-box">		    	       				    	        					
+			        					<div class="img-wrap wrap-aspect-ratio" data-ratio="1.337349397590361">
+			        						
+			                            	<a href="/${mangaEp.manga.name }/${mangaEp.epNo }"><img  src="${mangaEp.manga.picUrl }"  /></a>
+			                            	
+			                            	<div class="release-date">${mangaEp.releaseDate }</div>
+			                            	<div class="manga-data"> 			                            		                     		
+				                            	<div class="manga-name"><a href="/${mangaEp.manga.name }" class="ellip-line">${mangaEp.manga.name }</a></div>
+				                            	<div class="manga-chapters"><a href="/${mangaEp.manga.name }/${mangaEp.epNo }"><div class="ep-no">Chapter ${mangaEp.epNo }</div><div class="ellip-line ep-name">${mangaEp.epName }</div></a></div>
+		                                	</div>
+			                            </div> 			                            
+                                	</div>                      
+		        				</div> 
+		        				   				
+       						</c:forEach>
+        						        					
+	        			</div>
+        				
+        			</div>           	
+            	</section>
+            </c:if>
             </c:if>
 
 			<a href="#" class="btn btn-more col-xs-12 col-sm-12 col-md-12 col-lg-12">View All</a>

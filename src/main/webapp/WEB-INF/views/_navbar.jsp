@@ -18,12 +18,12 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a href="#">Home</a>
-                    </li>
-                    <li>
-                        <a href="#">Advanced Search</a>
-                    </li>
+                    <li class="hidden-lg hidden-md"><a href="#">Naruto</a></li>
+                    <li class="hidden-lg hidden-md"><a href="#">One Piece</a></li>
+                    <li class="hidden-lg hidden-md"><a href="#">Bleach</a></li>
+                    <li class="hidden-lg hidden-md"><a href="#">Toriko</a></li>
+                    <li class="hidden-lg hidden-md"><a href="#">Fairy Tail</a></li>
+                    <li class="hidden-lg hidden-md"><a href="#">Shokugeki no Soma</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Manga  <span class="caret"></span></a>
                         <ul class="dropdown-menu" role="menu">
