@@ -6,14 +6,18 @@ import org.codehaus.jackson.annotate.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class MangaEpPic {
 
+
 	@JsonProperty("ep_pic_id")
 	private Integer epPicId;
-	
+
 	@JsonProperty("manga_ep_id")
 	private Integer mangaEpId;
+
+	@JsonProperty("original_pic_url")
+	private String originalPicUrl;
 	
-	@JsonProperty("picUrl")
-	private String picUrl;
+	@JsonProperty("upload_pic_url")
+	private String uploadPicUrl;
 
 	public Integer getEpPicId() {
 		return epPicId;
@@ -22,7 +26,7 @@ public class MangaEpPic {
 	public void setEpPicId(Integer epPicId) {
 		this.epPicId = epPicId;
 	}
-	
+
 	public Integer getMangaEpId() {
 		return mangaEpId;
 	}
@@ -31,14 +35,20 @@ public class MangaEpPic {
 		this.mangaEpId = mangaEpId;
 	}
 
-	public String getPicUrl() {
-		return picUrl;
+	public String getOriginalPicUrl() {
+		return originalPicUrl;
 	}
 
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
+	public void setOriginalPicUrl(String originalPicUrl) {
+		this.originalPicUrl = originalPicUrl;
 	}
-	
-	
+
+	public String getUploadPicUrl() {
+		return uploadPicUrl;
+	}
+
+	public void setUploadPicUrl(String uploadPicUrl) {
+		this.uploadPicUrl = uploadPicUrl;
+	}
 	
 }

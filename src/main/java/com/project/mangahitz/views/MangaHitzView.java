@@ -1,72 +1,47 @@
 package com.project.mangahitz.views;
 
-import com.project.mangahitz.constants.MGHConstants;
-import com.project.mangahitz.domains.response.MangaEpListResponse;
-import com.project.mangahitz.domains.response.MangaListResponse;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.project.mangahitz.domains.PageableManga;
+import com.project.mangahitz.domains.PageableMangaEp;
 
-public class IndexView extends BaseView {
-
+public class MangaHitzView extends ModelAndView {
 	
 	private String viewType;
-	private MangaListResponse lastestManga;
-	private MangaEpListResponse lastestMangaEp;
-	private MangaListResponse popularManga;
-	private MangaEpListResponse popularMangaEp;
+
+	private PageableManga pageableLastestManga;
+	private PageableMangaEp pageableLastestMangaEp;
 	
-	public IndexView(){
-		this.setViewName("index");
-		this.viewType = MGHConstants.VIEW_TYPE_LIST;
+	public MangaHitzView(){
+		this.setViewName("/index");
 	}
 	
 	public String getViewType() {
 		return viewType;
 	}
 
-
 	public void setViewType(String viewType) {
 		this.viewType = viewType;
 		this.addObject("viewType", viewType);
+	}
+
+	public PageableManga getPageableLastestManga() {
+		return pageableLastestManga;
+	}
+
+	public void setPageableLastestManga(PageableManga pageableLastestManga) {
+		this.pageableLastestManga = pageableLastestManga;
 		
+		this.addObject("pageableLastestManga", pageableLastestManga);
 	}
 
-	public MangaListResponse getLastestManga() {
-		return lastestManga;
+	public PageableMangaEp getPageableLastestMangaEp() {
+		return pageableLastestMangaEp;
 	}
 
-	public void setLastestManga(MangaListResponse lastestManga) {
-		this.addObject("lastestManga", lastestManga);
-		this.lastestManga = lastestManga;
+	public void setPageableLastestMangaEp(PageableMangaEp pageableLastestMangaEp) {
+		this.pageableLastestMangaEp = pageableLastestMangaEp;
+		
+		this.addObject("pageableLastestMangaEp", pageableLastestMangaEp);
 	}
-
-	public MangaEpListResponse getLastestMangaEp() {
-		return lastestMangaEp;
-	}
-
-	public void setLastestMangaEp(MangaEpListResponse lastestMangaEp) {
-		this.addObject("lastestMangaEp", lastestMangaEp);
-		this.lastestMangaEp = lastestMangaEp;
-	}
-
-	public MangaListResponse getPopularManga() {
-		return popularManga;
-	}
-
-	public void setPopularManga(MangaListResponse popularManga) {
-		this.addObject("popularManga", popularManga);
-		this.popularManga = popularManga;
-	}
-
-	public MangaEpListResponse getPopularMangaEp() {
-		return popularMangaEp;
-	}
-
-	public void setPopularMangaEp(MangaEpListResponse popularMangaEp) {
-		this.addObject("popularMangaEp", popularMangaEp);
-		this.popularMangaEp = popularMangaEp;
-	}
-
-	
-	
-	
 }

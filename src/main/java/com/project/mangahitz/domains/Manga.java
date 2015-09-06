@@ -1,178 +1,90 @@
 package com.project.mangahitz.domains;
 
+import java.util.Date;
 import java.util.List;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
 
-@JsonIgnoreProperties(ignoreUnknown=true)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Manga {
 
 	@JsonProperty("manga_id")
 	private Integer mangaId;
-	
+
 	@JsonProperty("name")
 	private String name;
-	
-	@JsonProperty("description")
-	private String description;
-	
-	@JsonProperty("alternate_name")
-	private String alternateName;
-	
-	@JsonProperty("year_release")
-	private String yearRelease;
-	
-	@JsonProperty("manga_status")
-	private String mangaStatus;
-	
-	@JsonProperty("author")
-	private String author;
-	
-	@JsonProperty("artist")
-	private String artist;
-	
-	@JsonProperty("publishing")
-	private String publishing;
-	
-	@JsonProperty("picUrl")
-	private String picUrl;
-	
-	@JsonProperty("rate")
-	private Integer rate;
-	
-	@JsonProperty("create_date")
-	private String createDate;
-	
-	@JsonProperty("thumbnail_url")
-	private String thumpnailUrl;
-	
-	@JsonProperty("content_url")
-	private String contentUrl;
-	
+
 	@JsonProperty("request_name")
 	private String requestName;
+
+	@JsonProperty("description")
+	private String description;
+
+	@JsonProperty("alternate_name")
+	private String alternateName;
+
+	@JsonProperty("year_release")
+	private String yearRelease;
+
+	@JsonProperty("status")
+	private String status;
+
+	@JsonProperty("author")
+	private String author;
+
+	@JsonProperty("artist")
+	private String artist;
+
+	@JsonProperty("publishing")
+	private String publishing;
+
+	@JsonProperty("categories")
+	private String categories;
+
+	@JsonProperty("tagges")
+	private String tagges;
+
+	@JsonProperty("original_pic_url")
+	private String originalPicUrl;
+
+	@JsonProperty("rate")
+	private Integer rate;
+
+	@JsonProperty("create_date")
+	private Date createDate;
+
+	@JsonProperty("original_thumbnail_url")
+	private String originalThumbnailUrl;
+
+	@JsonProperty("content_url")
+	private String contentUrl;
+
+	@JsonProperty("upload_pic_url")
+	private String uploadPicUrl;
+
+	@JsonProperty("upload_thumbnail_url")
+	private String uploadThumbnailUrl;
+
+	@JsonProperty("lastest_release")
+	private Date lastestRelease;
 	
-	@JsonProperty("manga_eps")
-	private List<MangaEp> mangaEps;
-	
-	public List<MangaEp> getMangaEps() {
-		return mangaEps;
-	}
-
-	public void setMangaEps(List<MangaEp> mangaEps) {
-		this.mangaEps = mangaEps;
-	}
-
-	public String getAlternateName() {
-		return alternateName;
-	}
-
-	public String getArtist() {
-		return artist;
-	}
-
-	public String getAuthor() {
-		return author;
-	}
-
-	public String getCreateDate() {
-		return createDate;
-	}
-
-	public String getDescription() {
-		return description;
-	}
+	private MangaEp[] mangaEpsList;
 
 	public Integer getMangaId() {
 		return mangaId;
-	}
-
-	public String getMangaStatus() {
-		return mangaStatus;
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public String getPublishing() {
-		return publishing;
-	}
-
-	public Integer getRate() {
-		return rate;
-	}
-
-	public String getYearRelease() {
-		return yearRelease;
-	}
-
-	public void setAlternateName(String alternateName) {
-		this.alternateName = alternateName;
-	}
-
-	public void setArtist(String artist) {
-		this.artist = artist;
-	}
-
-	public void setAuthor(String author) {
-		this.author = author;
-	}
-
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
 	}
 
 	public void setMangaId(Integer mangaId) {
 		this.mangaId = mangaId;
 	}
 
-	public void setMangaStatus(String mangaStatus) {
-		this.mangaStatus = mangaStatus;
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
-	}
-
-	public void setPublishing(String publishing) {
-		this.publishing = publishing;
-	}
-
-	public void setRate(Integer rate) {
-		this.rate = rate;
-	}
-
-	public void setYearRelease(String yearRelease) {
-		this.yearRelease = yearRelease;
-	}
-
-	public String getThumpnailUrl() {
-		return thumpnailUrl;
-	}
-
-	public void setThumpnailUrl(String thumpnailUrl) {
-		this.thumpnailUrl = thumpnailUrl;
-	}
-
-	public String getContentUrl() {
-		return contentUrl;
-	}
-
-	public void setContentUrl(String contentUrl) {
-		this.contentUrl = contentUrl;
-	}
-	public String getPicUrl() {
-		return picUrl;
-	}
-
-	public void setPicUrl(String picUrl) {
-		this.picUrl = picUrl;
 	}
 
 	public String getRequestName() {
@@ -182,6 +94,151 @@ public class Manga {
 	public void setRequestName(String requestName) {
 		this.requestName = requestName;
 	}
-	
-	
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public String getAlternateName() {
+		return alternateName;
+	}
+
+	public void setAlternateName(String alternateName) {
+		this.alternateName = alternateName;
+	}
+
+	public String getYearRelease() {
+		return yearRelease;
+	}
+
+	public void setYearRelease(String yearRelease) {
+		this.yearRelease = yearRelease;
+	}
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
+	public String getAuthor() {
+		return author;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public String getArtist() {
+		return artist;
+	}
+
+	public void setArtist(String artist) {
+		this.artist = artist;
+	}
+
+	public String getPublishing() {
+		return publishing;
+	}
+
+	public void setPublishing(String publishing) {
+		this.publishing = publishing;
+	}
+
+	public String getCategories() {
+		return categories;
+	}
+
+	public void setCategories(String categories) {
+		this.categories = categories;
+	}
+
+	public String getTagges() {
+		return tagges;
+	}
+
+	public void setTagges(String tagges) {
+		this.tagges = tagges;
+	}
+
+	public String getOriginalPicUrl() {
+		return originalPicUrl;
+	}
+
+	public void setOriginalPicUrl(String originalPicUrl) {
+		this.originalPicUrl = originalPicUrl;
+	}
+
+	public Integer getRate() {
+		return rate;
+	}
+
+	public void setRate(Integer rate) {
+		this.rate = rate;
+	}
+
+	public Date getCreateDate() {
+		return createDate;
+	}
+
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getOriginalThumbnailUrl() {
+		return originalThumbnailUrl;
+	}
+
+	public void setOriginalThumbnailUrl(String originalThumbnailUrl) {
+		this.originalThumbnailUrl = originalThumbnailUrl;
+	}
+
+	public String getContentUrl() {
+		return contentUrl;
+	}
+
+	public void setContentUrl(String contentUrl) {
+		this.contentUrl = contentUrl;
+	}
+
+	public String getUploadPicUrl() {
+		return uploadPicUrl;
+	}
+
+	public void setUploadPicUrl(String uploadPicUrl) {
+		this.uploadPicUrl = uploadPicUrl;
+	}
+
+	public String getUploadThumbnailUrl() {
+		return uploadThumbnailUrl;
+	}
+
+	public void setUploadThumbnailUrl(String uploadThumbnailUrl) {
+		this.uploadThumbnailUrl = uploadThumbnailUrl;
+	}
+
+	public Date getLastestRelease() {
+		return lastestRelease;
+	}
+
+	public void setLastestRelease(Date lastestRelease) {
+		this.lastestRelease = lastestRelease;
+	}
+
+	public MangaEp[] getMangaEpsList() {
+		return mangaEpsList;
+	}
+
+	public void setMangaEpsList(MangaEp[] mangaEpsList) {
+		this.mangaEpsList = mangaEpsList;
+	}
+
+
+
 }

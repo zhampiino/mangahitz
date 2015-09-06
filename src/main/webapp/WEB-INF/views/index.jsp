@@ -9,12 +9,12 @@
         <div class="container hidden-xs hidden-sm">
         	<div class="row">
         		<c:if test="${not empty popularManga }">
-        			<c:forEach var="manga" items="${popularManga.mangaList }" begin="0" end="5" step="1">
+        			<c:forEach var="manga" items="${popularManga.content }" begin="0" end="5" step="1">
         				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 		        			<div class="thumbnail">
 		        				<div class="img-wrap">		        					
 		        					<a href="/${manga.requestName }">	        						
-		        						<img src="${manga.picUrl }" />
+		        						<img src="${manga.originalPicUrl }" />
 		        						<div class="push">		        						
 		        							<div class="manga-name">${manga.requestName }</div>
 		        						</div>
@@ -43,32 +43,31 @@
         
             <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 content">
             
-            <c:if test="${viewType eq 'list' }">       
-	            <c:if test="${not empty lastestManga}">
-	            
+            <c:if test="${viewType eq 'list' }">
+	            <c:if test="${not empty pageableLastestManga}">
+	            <c:out value="pageableLastestManga"></c:out>
 	                <section class="section-new-releases list-view">               
 	                	<div class="wrapper">
 	                		<div class="section-header">          		
 		        				<h1 class="pull-left">New Releases</h1>	        				
 		        				<div class="btn-group btn-layout-view pull-right">
 		                        	<span class="btn btn-default btn-xs list active"><span class="glyphicon glyphicon-th-list"></span><span class="hidden-xs">&nbsp;List</span></span>
-		                        	<a href="?viewType=grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
+		                        	<a href="/?viewType=grid" class="btn btn-default btn-xs grid"><span class="glyphicon glyphicon-th"></span><span class="hidden-xs">&nbsp;Grid</span></a>
 		                        </div>
 	                        </div> 
 	                                        				
 	    					<ul class="list-group">
 	    					
-	                      		<c:forEach var="manga" items="${lastestManga.mangaList }">
-	                      		
+	                      		<c:forEach var="manga" items="${pageableLastestManga.content }">
 	                       		<li class="list-group-item">
 	                                <div class="img-thumb-wrap">
-	                                    <a href="/${manga.name }"><img src="${manga.picUrl }" /></a>
+	                                    <a href="/${manga.name }"><img src="${manga.originalPicUrl }" /></a>
 	                                </div>
 	                                <div class="manga-data">
 	                                    <div class="manga-name"><a href="/${manga.requestName }">${manga.name }</a></div>
 	                                    
-	                                    <c:if test="${not empty manga.mangaEps }">
-										<c:forEach var="mangaEp" items="${manga.mangaEps }">
+	                                    <c:if test="${not empty manga.mangaEpsList }">
+										<c:forEach var="mangaEp" items="${manga.mangaEpsList }">
 		                                    
 		                                    <div class="manga-chapters"> 
 		                                        <div class="title pull-left"><a href="/${manga.requestName }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
@@ -100,7 +99,7 @@
             </c:if>
             
             <c:if test="${viewType eq 'grid' }">       
-            <c:if test="${not empty lastestMangaEp}">
+            <c:if test="${not empty pageableLastestMangaEp}">
             	<section class="section-new-releases grid-view">
             		<div class="wrapper">           		
                 		<div class="section-header">          		
@@ -113,18 +112,18 @@
         				
         				<div class="grid-group">
 		        				        			        				
-      				    	<c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
+      				    	<c:forEach var="mangaEp" items="${pageableLastestMangaEp.content }">
       				    		
       				          	<div class="grid-group-item col-xs-6 col-sm-3 col-md-4 col-lg-3">
 	      				          	<div class="border-box">		    	       				    	        					
 			        					<div class="img-wrap wrap-aspect-ratio" data-ratio="1.337349397590361">
 			        						
-			                            	<a href="/${mangaEp.manga.name }/${mangaEp.epNo }"><img  src="${mangaEp.manga.picUrl }"  /></a>
+			                            	<a href="/${mangaEp.requestName }/${mangaEp.epNo }"><img  src="${mangaEp.picUrl }"  /></a>
 			                            	
 			                            	<div class="release-date">${mangaEp.releaseDate }</div>
 			                            	<div class="manga-data"> 			                            		                     		
-				                            	<div class="manga-name"><a href="/${mangaEp.manga.name }" class="ellip-line">${mangaEp.manga.name }</a></div>
-				                            	<div class="manga-chapters"><a href="/${mangaEp.manga.name }/${mangaEp.epNo }"><div class="ep-no">Chapter ${mangaEp.epNo }</div><div class="ellip-line ep-name">${mangaEp.epName }</div></a></div>
+				                            	<div class="manga-name"><a href="/${mangaEp.requestName }" class="ellip-line">${mangaEp.name }</a></div>
+				                            	<div class="manga-chapters"><a href="/${mangaEp.requestName }/${mangaEp.epNo }"><div class="ep-no">Chapter ${mangaEp.epNo }</div><div class="ellip-line ep-name">${mangaEp.epName }</div></a></div>
 		                                	</div>
 			                            </div> 			                            
                                 	</div>                      
@@ -149,11 +148,11 @@
 	                    <aside class="popular-manga">
 	                        <h3>Popular Manga</h3>
 	                        <ul class="list-group">
-	                        	<c:forEach var="manga" items="${popularManga.mangaList }">
+	                        	<c:forEach var="manga" items="${popularManga.content }">
 	                        	
 		                        	<li class="list-group-item">
 		                        		<div class="img-thumb-wrap">
-		                                    <a href="/${manga.requestName }"><img src="${manga.picUrl }" /></a> 
+		                                    <a href="/${manga.requestName }"><img src="${manga.originalPicUrl }" /></a> 
 		                                </div>
 		                                <div class="manga-name"><a href="/${manga.requestName }"><b>${manga.name }</b></a></div>   	                                
 		                        	</li>
