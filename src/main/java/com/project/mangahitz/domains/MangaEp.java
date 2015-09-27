@@ -1,9 +1,12 @@
 package com.project.mangahitz.domains;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.codehaus.jackson.annotate.JsonIgnoreProperties;
 import org.codehaus.jackson.annotate.JsonProperty;
+
+import com.project.mangahitz.utils.CalendarUtils;
 
 @JsonIgnoreProperties(ignoreUnknown=true)
 public class MangaEp {
@@ -41,6 +44,16 @@ public class MangaEp {
 	@JsonProperty("name")
 	private String name;
 	
+	private String releaseDateStr;
+	
+	public String getReleaseDateStr() {
+		return releaseDateStr;
+	}
+
+	public void setReleaseDateStr(String releaseDateStr) {
+		this.releaseDateStr = releaseDateStr;
+	}
+
 	public Integer getMangaEpId() {
 		return mangaEpId;
 	}
@@ -79,6 +92,13 @@ public class MangaEp {
 
 	public void setReleaseDate(Date releaseDate) {
 		this.releaseDate = releaseDate;
+		String tempRelease =  CalendarUtils.getRelativeTime(releaseDate);
+		if(tempRelease.equals("")){
+			SimpleDateFormat sdfmt = new SimpleDateFormat("dd/MM/yyyy");
+			this.releaseDateStr = sdfmt.format(releaseDate);
+		}else{
+			this.releaseDateStr = tempRelease;
+		}
 	}
 
 	public Integer getRate() {

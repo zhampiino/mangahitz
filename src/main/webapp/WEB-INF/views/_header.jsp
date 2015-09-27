@@ -33,4 +33,7 @@
 
 <body>
 
-<c:import url="_navbar.jsp"></c:import>
+	<!-- /.Start Main Wrapper -->
+	<div class="main-wrapper">
+	
+	<c:import url="_navbar.jsp"></c:import>

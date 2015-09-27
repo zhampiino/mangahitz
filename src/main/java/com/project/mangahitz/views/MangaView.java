@@ -1,15 +1,13 @@
 package com.project.mangahitz.views;
 
-import java.util.List;
-
 import com.project.mangahitz.domains.Manga;
-import com.project.mangahitz.domains.MangaEp;
+import com.project.mangahitz.domains.PageableMangaEp;
 
 public class MangaView extends BaseView {
 
 	private Manga manga;
 	
-	private List<MangaEp> mangaEps;
+	private PageableMangaEp mangaEps;
 	
 	public MangaView(){
 		this.setViewName("manga");
@@ -20,12 +18,14 @@ public class MangaView extends BaseView {
 	}
 	public void setManga(Manga manga) {
 		this.manga = manga;
+		this.addObject("manga", manga);
 	}
-	public List<MangaEp> getMangaEps() {
+	public PageableMangaEp getMangaEps() {
 		return mangaEps;
 	}
-	public void setMangaEps(List<MangaEp> mangaEps) {
+	public void setMangaEps(PageableMangaEp mangaEps) {
 		this.mangaEps = mangaEps;
+		this.addObject("mangaEps", mangaEps);
 	}
 	
 }

@@ -69,7 +69,7 @@ public class Manga {
 	@JsonProperty("lastest_release")
 	private Date lastestRelease;
 	
-	private MangaEp[] mangaEpsList;
+	private List<MangaEp> mangaEpsList;
 
 	public Integer getMangaId() {
 		return mangaId;
@@ -231,11 +231,11 @@ public class Manga {
 		this.lastestRelease = lastestRelease;
 	}
 
-	public MangaEp[] getMangaEpsList() {
+	public List<MangaEp> getMangaEpsList() {
 		return mangaEpsList;
 	}
 
-	public void setMangaEpsList(MangaEp[] mangaEpsList) {
+	public void setMangaEpsList(List<MangaEp> mangaEpsList) {
 		this.mangaEpsList = mangaEpsList;
 	}
 

@@ -3,6 +3,7 @@ package com.project.mangahitz.controllers;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
 
@@ -27,9 +28,12 @@ import org.springframework.web.client.RestTemplate;
 import com.project.mangahitz.constants.MGHConstants;
 import com.project.mangahitz.domains.Manga;
 import com.project.mangahitz.domains.MangaEp;
+import com.project.mangahitz.domains.MangaEpPic;
 import com.project.mangahitz.domains.PageableManga;
 import com.project.mangahitz.domains.PageableMangaEp;
+import com.project.mangahitz.views.MangaEpView;
 import com.project.mangahitz.views.MangaHitzView;
+import com.project.mangahitz.views.MangaView;
 
 /**
  * Handles requests for the application home page.
@@ -78,7 +82,7 @@ public class MangaHitzController {
 		
 		if(mangaHitzView.getViewType().equals("list")){
 			
-			ResponseEntity<PageableManga> responseManga = restTemplate.getForEntity(new URI("http://localhost:8092/find/manga/lastest/20/0"), PageableManga.class);
+			ResponseEntity<PageableManga> responseManga = restTemplate.getForEntity(new URI(MGHConstants.FIND_LIST_LASTEST), PageableManga.class);
 		
 			if(responseManga.getStatusCode() == HttpStatus.OK){
 				
@@ -86,9 +90,9 @@ public class MangaHitzController {
 				
 				for (Manga mangaDto : pageableMangaDto.getContent()) {
 					
-					ResponseEntity<MangaEp[]> responseMangaEp =  restTemplate.getForEntity("http://localhost:8092/find/manga/ep/lastest/{mangaId}", MangaEp[].class, mangaDto.getMangaId());
+					ResponseEntity<MangaEp[]> responseMangaEp =  restTemplate.getForEntity(MGHConstants.FIND_LASTEST_MANGA_EP_BY_MANGA_ID, MangaEp[].class, mangaDto.getMangaId());
 					
-					MangaEp[] mangaEpDtos = responseMangaEp.getBody();
+					List<MangaEp> mangaEpDtos = Arrays.asList(responseMangaEp.getBody());
 					
 					mangaDto.setMangaEpsList(mangaEpDtos);
 					
@@ -99,7 +103,7 @@ public class MangaHitzController {
 			
 		}else{
 			
-			ResponseEntity<PageableMangaEp> pageableLastestMangaEp = restTemplate.getForEntity(new URI("http://localhost:8092/find/manga/ep/lastest/20/0"), PageableMangaEp.class);
+			ResponseEntity<PageableMangaEp> pageableLastestMangaEp = restTemplate.getForEntity(new URI(MGHConstants.FIND_GRID_LASTEST), PageableMangaEp.class);
 			
 			if(pageableLastestMangaEp.getStatusCode() == HttpStatus.OK){
 				mangaHitzView.setPageableLastestMangaEp(pageableLastestMangaEp.getBody());
@@ -132,12 +136,36 @@ public class MangaHitzController {
 	}
 	
 	
-	@RequestMapping(value = "/{requestName}", method = RequestMethod.GET)
-	public String manga(Locale locale, Model model,@PathVariable("requestName") String requestName) {
+	@RequestMapping(value = "/{requestName}/chapter-list/{page}", method = RequestMethod.GET)
+	public MangaView manga(Locale locale, Model model,@PathVariable("requestName") String requestName,@PathVariable("page") Integer page) throws RestClientException, URISyntaxException {
 		
-		model.addAttribute("request manga name", requestName);
+		MangaView view = new MangaView();
 		
-		return "manga";
+		ResponseEntity<Manga> responseManga = restTemplate.getForEntity(MGHConstants.FIND_MANGA_BY_NAME, Manga.class,requestName);
+		
+		view.setManga(responseManga.getBody());
+		
+		ResponseEntity<PageableMangaEp> responseMangaEps = restTemplate.getForEntity(MGHConstants.FIND_MANGA_EP_BY_NAME_AND_PAGE, PageableMangaEp.class,requestName,75,--page);
+		
+		view.setMangaEps(responseMangaEps.getBody());
+		
+		return view;
+	}
+	
+	@RequestMapping(value = "/{requestName}/chapter/{epNo}", method = RequestMethod.GET)
+	public MangaEpView manga(Locale locale, Model model,@PathVariable("requestName") String requestName,@PathVariable("epNo") String epNo) throws RestClientException, URISyntaxException {
+		
+		MangaEpView view = new MangaEpView();
+		
+		ResponseEntity<MangaEp> responseMangaEp = restTemplate.getForEntity(MGHConstants.FIND_MANGA_EP_BY_NAME_AND_EP_NO, MangaEp.class,requestName,epNo);
+		ResponseEntity<MangaEpPic[]> responseMangaEpPic = restTemplate.getForEntity(MGHConstants.FIND_MANGA_EP_PIC_BY_NAME_AND_EP_NO_ALL, MangaEpPic[].class,requestName,epNo);
+		
+		List<MangaEpPic> mangaEpPics =  Arrays.asList(responseMangaEpPic.getBody());
+		
+		view.setMangaEpPics(mangaEpPics);
+		view.setMangaEp(responseMangaEp.getBody());
+		
+		return view;
 	}
 	
 //	@RequestMapping(value = "/{requestName}/chapters/{pageNumber}", method = RequestMethod.GET)
@@ -190,7 +218,7 @@ public class MangaHitzController {
 	@ModelAttribute("popularManga")
 	protected PageableManga popularManga() throws RestClientException, URISyntaxException{
 		
-		ResponseEntity<PageableManga> responseManga = restTemplate.getForEntity(new URI("http://localhost:8092/find/manga/popular/20/0"), PageableManga.class);
+		ResponseEntity<PageableManga> responseManga = restTemplate.getForEntity(new URI(MGHConstants.FIND_POPULAR_MANGA), PageableManga.class);
 		
 		if(responseManga.getStatusCode() == HttpStatus.OK){
 			return responseManga.getBody();

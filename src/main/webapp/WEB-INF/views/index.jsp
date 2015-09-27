@@ -4,7 +4,7 @@
 
 <c:import url="_header.jsp"></c:import>
 
-    <!-- Jumbotron -->
+    <!-- /.Jumbotron -->
     <div class="jumbotron index-jumbotron">
         <div class="container hidden-xs hidden-sm">
         	<div class="row">
@@ -13,7 +13,7 @@
         				<div class="col-xs-6 col-sm-4 col-md-2 col-lg-2">
 		        			<div class="thumbnail">
 		        				<div class="img-wrap">		        					
-		        					<a href="/${manga.requestName }">	        						
+		        					<a href="/${manga.requestName }/chapter-list/1">	        						
 		        						<img src="${manga.originalPicUrl }" />
 		        						<div class="push">		        						
 		        							<div class="manga-name">${manga.requestName }</div>
@@ -28,15 +28,15 @@
         </div>
     </div>
     
-    <!--  Introduction -->
-    <div class="intro">
+    <!-- /.context-header  -->
+    <div class="context-header">
     	<div class="container">
     		<h3>READ MANGA ONLINE</h3>
     		<p>Manga is the Japanese comics with a unique story line and style. In Japan people of all ages read manga, manga does not target younger audiences like american comics. Here you will find 1000s of free english translated manga scans to read online. Discover the world of otaku! Naruto 701, Naruto Gaiden: The Seventh Hokage 11, Bleach 635, One Piece 794, Fairy Tail 444, will coming next!</p>
     	</div>
     </div>
 
-    <!-- Main Content -->
+    <!-- /.Start Main Container -->
     <div class="container">
 
         <div class="row">
@@ -45,7 +45,6 @@
             
             <c:if test="${viewType eq 'list' }">
 	            <c:if test="${not empty pageableLastestManga}">
-	            <c:out value="pageableLastestManga"></c:out>
 	                <section class="section-new-releases list-view">               
 	                	<div class="wrapper">
 	                		<div class="section-header">          		
@@ -61,18 +60,18 @@
 	                      		<c:forEach var="manga" items="${pageableLastestManga.content }">
 	                       		<li class="list-group-item">
 	                                <div class="img-thumb-wrap">
-	                                    <a href="/${manga.name }"><img src="${manga.originalPicUrl }" /></a>
+	                                    <a href="/${manga.requestName }/chapter-list/1"><img src="${manga.originalPicUrl }" /></a>
 	                                </div>
 	                                <div class="manga-data">
-	                                    <div class="manga-name"><a href="/${manga.requestName }">${manga.name }</a></div>
+	                                    <div class="manga-name"><a href="/${manga.requestName }/chapter-list/1">${manga.name }</a></div>
 	                                    
 	                                    <c:if test="${not empty manga.mangaEpsList }">
 										<c:forEach var="mangaEp" items="${manga.mangaEpsList }">
 		                                    
 		                                    <div class="manga-chapters"> 
-		                                        <div class="title pull-left"><a href="/${manga.requestName }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
+		                                        <div class="title pull-left"><a href="/${manga.requestName }/chapter/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
 		                                        <div class="opt pull-right">
-		                                            <span class="date hidden-xs">${mangaEp.releaseDate }</span>
+		                                            <span class="date hidden-xs">${mangaEp.releaseDateStr }</span>
 		                                            <span class="ratings hidden-sm hidden-xs">
 		                                                <span class="glyphicon glyphicon-star"></span>
 		                                                <span class="glyphicon glyphicon-star"></span>
@@ -118,12 +117,12 @@
 	      				          	<div class="border-box">		    	       				    	        					
 			        					<div class="img-wrap wrap-aspect-ratio" data-ratio="1.337349397590361">
 			        						
-			                            	<a href="/${mangaEp.requestName }/${mangaEp.epNo }"><img  src="${mangaEp.picUrl }"  /></a>
+			                            	<a href="/${mangaEp.requestName }/chapter/${mangaEp.epNo }"><img  src="${mangaEp.picUrl }"  /></a>
 			                            	
-			                            	<div class="release-date">${mangaEp.releaseDate }</div>
+			                            	<div class="release-date">${mangaEp.releaseDateStr }</div>
 			                            	<div class="manga-data"> 			                            		                     		
-				                            	<div class="manga-name"><a href="/${mangaEp.requestName }" class="ellip-line">${mangaEp.name }</a></div>
-				                            	<div class="manga-chapters"><a href="/${mangaEp.requestName }/${mangaEp.epNo }"><div class="ep-no">Chapter ${mangaEp.epNo }</div><div class="ellip-line ep-name">${mangaEp.epName }</div></a></div>
+				                            	<div class="manga-name"><a href="/${mangaEp.requestName }/chapter-list/1" class="ellip-line">${mangaEp.name }</a></div>
+				                            	<div class="manga-chapters"><a href="/${mangaEp.requestName }/chapter/${mangaEp.epNo }"><div class="ep-no">Chapter ${mangaEp.epNo }</div><div class="ellip-line ep-name">${mangaEp.epName }</div></a></div>
 		                                	</div>
 			                            </div> 			                            
                                 	</div>                      
@@ -152,9 +151,9 @@
 	                        	
 		                        	<li class="list-group-item">
 		                        		<div class="img-thumb-wrap">
-		                                    <a href="/${manga.requestName }"><img src="${manga.originalPicUrl }" /></a> 
+		                                    <a href="/${manga.requestName }/chapter-list/1"/><img src="${manga.originalPicUrl }" /></a> 
 		                                </div>
-		                                <div class="manga-name"><a href="/${manga.requestName }"><b>${manga.name }</b></a></div>   	                                
+		                                <div class="manga-name"><a href="/${manga.requestName }/chapter-list/1"><b>${manga.name }</b></a></div>   	                                
 		                        	</li>
 	                        	</c:forEach>
 	                        </ul>
@@ -172,7 +171,7 @@
 		                        		<div class="img-thumb-wrap">
 		                                    <a href="/${mangaEp.manga.requestName }"><img src="${mangaEp.manga.picUrl }" /></a> 
 		                                </div>                       		
-		                                <div class="manga-name"><a href="/${mangaEp.manga.requestName }">${mangaEp.manga.name }</a></div>
+		                                <div class="manga-name"><a href="/${mangaEp.manga.requestName }/chapter-list/1">${mangaEp.manga.name }</a></div>
 	                                    <div class="manga-chapters"><a href="/${mangaEp.manga.requestName }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
 		                        	</li>
 	                        	</c:forEach>
@@ -195,6 +194,6 @@
         </div>
 
     </div>
-    <!-- /.container -->
+    <!-- /.End Main Container -->
 
 <c:import url="_footer.jsp"></c:import>
