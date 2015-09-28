@@ -124,67 +124,7 @@
 			</div>          
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 widget">
-            <div class="wrapper">
-                <aside class="popular-manga">
-                    <h3>Popular Manga</h3>
-                    
-                    <c:if test="${not empty lastestManga}">
-                    
-                    <ul class="list-group">
-                    
-                    	<c:forEach var="manga" items="${lastestManga.mangaList }">
-                    	
-                     	<li class="list-group-item">
-                     		<div class="img-thumb-wrap">
-                                 <a href="/${manga.name }"><img src="${manga.picUrl }" /></a> 
-                             </div>
-                             <div class="manga-name"><a href="/${manga.name }"><b>${manga.name }</b></a></div>   	                                
-                     	</li>
-                     	
-                    	</c:forEach>
-                    	
-                    </ul>
-                    
-                    </c:if>
-                </aside>                   
-            </div>
-            
-            <div class="wrapper">
-                <aside class="popular-manga-chapter">
-                    <h3>Popular Chapter</h3>
-                    
-                    <c:if test="${not empty lastestMangaEp}">
-                    
-                    <ul class="list-group">
-                                           	
-                    	<c:forEach var="mangaEp" items="${lastestMangaEp.mangaEpList }">
-			
-                     	<li class="list-group-item"> 
-                     		<div class="img-thumb-wrap">
-                                 <a href="/${mangaEp.manga.name }"><img src="${mangaEp.manga.picUrl }" /></a> 
-                             </div>                       		
-                             <div class="manga-name"><a href="/">${mangaEp.manga.name }</a></div>
-                                <div class="manga-chapters"><a href="/${mangaEp.manga.name }/${mangaEp.epNo }">Chapter ${mangaEp.epNo } : ${mangaEp.epName }</a></div>
-                     	</li>
-                     	 
-                    	</c:forEach>		                                          	
-                    	
-                    </ul>
-                    
-                    </c:if>
-                    
-                </aside>
-            </div>
-            
-            <div class="wrapper">
-                <aside class="Social">
-                    <h3>Social</h3>
-                    
-                </aside>
-            </div>
-            
-        </div>
+        <c:import url="_aside.jsp"></c:import>
 
 
 

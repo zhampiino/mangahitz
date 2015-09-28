@@ -31,8 +31,9 @@
     <!-- /.context-header  -->
     <div class="context-header">
     	<div class="container">
-    		<h3>READ MANGA ONLINE</h3>
-    		<p>Manga is the Japanese comics with a unique story line and style. In Japan people of all ages read manga, manga does not target younger audiences like american comics. Here you will find 1000s of free english translated manga scans to read online. Discover the world of otaku! Naruto 701, Naruto Gaiden: The Seventh Hokage 11, Bleach 635, One Piece 794, Fairy Tail 444, will coming next!</p>
+    		<input type="text" />
+    		<!-- <h3>READ MANGA ONLINE</h3>
+    		<p>Manga is the Japanese comics with a unique story line and style. In Japan people of all ages read manga, manga does not target younger audiences like american comics. Here you will find 1000s of free english translated manga scans to read online. Discover the world of otaku! Naruto 701, Naruto Gaiden: The Seventh Hokage 11, Bleach 635, One Piece 794, Fairy Tail 444, will coming next!</p> -->
     	</div>
     </div>
 
@@ -141,54 +142,8 @@
 
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 widget">
-            	<c:if test="${not empty popularManga}">
-	                <div class="wrapper">
-	                    <aside class="popular-manga">
-	                        <h3>Popular Manga</h3>
-	                        <ul class="list-group">
-	                        	<c:forEach var="manga" items="${popularManga.content }">
-	                        	
-		                        	<li class="list-group-item">
-		                        		<div class="img-thumb-wrap">
-		                                    <a href="/${manga.requestName }/chapter-list/1"/><img src="${manga.originalPicUrl }" /></a> 
-		                                </div>
-		                                <div class="manga-name"><a href="/${manga.requestName }/chapter-list/1"><b>${manga.name }</b></a></div>   	                                
-		                        	</li>
-	                        	</c:forEach>
-	                        </ul>
-	                    </aside>                   
-	                </div>
-                </c:if>
-                <c:if test="${not empty popularMangaEp }">
-	                <div class="wrapper">
-	                    <aside class="popular-manga-chapter">
-	                        <h3>Popular Chapter</h3>
-	                        <ul class="list-group">
-	                       
-	                        	<c:forEach var="mangaEp" items="${popularMangaEp.mangaEpList }">
-		                        	<li class="list-group-item"> 
-		                        		<div class="img-thumb-wrap">
-		                                    <a href="/${mangaEp.manga.requestName }"><img src="${mangaEp.manga.picUrl }" /></a> 
-		                                </div>                       		
-		                                <div class="manga-name"><a href="/${mangaEp.manga.requestName }/chapter-list/1">${mangaEp.manga.name }</a></div>
-	                                    <div class="manga-chapters"><a href="/${mangaEp.manga.requestName }/${mangaEp.epNo}">Chapter ${mangaEp.epNo} : ${mangaEp.epName }</a></div>
-		                        	</li>
-	                        	</c:forEach>
-	                        
-	                        </ul>
-	                    </aside>
-	                </div>
-                </c:if>	
-                <div class="wrapper">
-                    <aside class="Social">
-                        <h3>Social</h3>
-                        
-                    </aside>
-                </div>
-                
-            </div>
-
+            
+		<c:import url="_aside.jsp"></c:import>
 
 
         </div>
